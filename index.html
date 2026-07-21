@@ -31,6 +31,7 @@
       <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
         <a href="#aplicaciones">Aplicaciones</a>
         <a href="#marcas">Marcas</a>
+        <a href="#calculadora">Calculadora</a>
         <a href="#proceso">Proceso</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#cotiza" class="nav-cta">Cotiza sin costo</a>
@@ -162,6 +163,49 @@
           </article>
         </div>
         <p class="marcas-note" data-reveal>¿Buscas un modelo específico? <a href="https://wa.link/rk6bz0" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te enviamos el catálogo completo de cada marca.</p>
+      </div>
+    </section>
+
+    <!-- Calculadora de respaldo -->
+    <section class="section calc" id="calculadora">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow mono">Calculadora de respaldo</p>
+          <h2>¿Qué batería necesita tu equipo?</h2>
+          <p class="calc-lede">Dinos cuánto consume tu equipo y cuántas horas debe seguir encendido si falla la energía. Te decimos la capacidad aproximada que necesitas.</p>
+        </header>
+        <form class="calc-form" id="calcForm" data-reveal novalidate>
+          <div class="calc-fields">
+            <div class="field">
+              <label for="calcV" class="mono">Voltaje del equipo</label>
+              <select id="calcV">
+                <option value="6">6 V</option>
+                <option value="12" selected>12 V</option>
+                <option value="24">24 V</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="calcW" class="mono">Consumo (watts)</label>
+              <input type="number" id="calcW" inputmode="numeric" min="1" max="10000" step="1" value="100">
+            </div>
+            <div class="field">
+              <label for="calcH" class="mono">Horas de respaldo</label>
+              <input type="number" id="calcH" inputmode="decimal" min="0.5" max="72" step="0.5" value="4">
+            </div>
+          </div>
+          <div class="calc-result" aria-live="polite">
+            <div class="calc-readout">
+              <p class="calc-tag mono">Batería recomendada</p>
+              <p class="calc-value" id="calcValue">12V · 55 Ah</p>
+              <p class="calc-note" id="calcNote">Batería sellada AGM de ciclo profundo.</p>
+            </div>
+            <div class="calc-cta">
+              <a class="btn btn-primary" id="calcWa" href="https://wa.link/rk6bz0" target="_blank" rel="noopener">Cotizar esta batería</a>
+              <p class="calc-fine mono">Cálculo aproximado · un asesor lo confirma contigo</p>
+            </div>
+          </div>
+        </form>
+        <p class="marcas-note" data-reveal>¿No conoces el consumo? <a href="https://wa.link/rk6bz0" target="_blank" rel="noopener">Mándanos una foto de tu batería actual</a> y nosotros identificamos el reemplazo.</p>
       </div>
     </section>
 
@@ -337,6 +381,7 @@
       <nav class="footer-nav" aria-label="Navegación de pie de página">
         <a href="#aplicaciones">Aplicaciones</a>
         <a href="#marcas">Marcas</a>
+        <a href="#calculadora">Calculadora</a>
         <a href="#proceso">Proceso</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#cotiza">Cotiza</a>

@@ -355,7 +355,8 @@ h3 {
 /* grano fílmico sobre navy */
 .hero::before { z-index: 1; }
 .hero::before,
-.cotiza::before {
+.cotiza::before,
+.calc::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -631,6 +632,111 @@ h3 {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* =====================================================================
+   Calculadora de respaldo
+   ===================================================================== */
+.calc {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(55% 80% at 90% -10%, rgba(30,86,200,.26), transparent 62%),
+    var(--grid-dark);
+  color: rgba(255,255,255,.78);
+}
+.calc .container { position: relative; z-index: 2; }
+.calc .section-head h2 { color: var(--white); }
+.calc-lede {
+  margin-top: 1rem;
+  color: rgba(255,255,255,.72);
+  max-width: 52ch;
+}
+
+.calc-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.field { display: flex; flex-direction: column; gap: .5rem; }
+.field label {
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+.field input,
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--line-on-dark);
+  border-radius: 0;
+  color: var(--white);
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: .85rem 1rem;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F59A23' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.4rem;
+}
+.field input:hover,
+.field select:hover { border-color: rgba(255,255,255,.35); }
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: rgba(255,255,255,.08);
+}
+
+/* Panel de resultado: ficha blanca tipo datasheet */
+.calc-result {
+  margin-top: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 30px 60px -24px rgba(0,0,0,.5);
+}
+.calc-tag {
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: .35rem;
+}
+.calc-value {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  color: var(--ink);
+}
+.calc-value em {
+  font-style: normal;
+  color: var(--orange);
+}
+.calc-note {
+  margin-top: .5rem;
+  color: var(--steel);
+  font-size: .95rem;
+  max-width: 46ch;
+}
+.calc-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .6rem;
+}
+.calc-fine { color: var(--steel); font-size: .7rem; text-transform: uppercase; }
+.calc .marcas-note { margin-top: 1.6rem; color: rgba(255,255,255,.72); }
+.calc .marcas-note a { color: var(--white); }
 
 /* =====================================================================
    Proceso · steps con indicador de carga
@@ -990,6 +1096,11 @@ h3 {
   .apps-grid,
   .marcas-grid,
   .steps { grid-template-columns: 1fr; }
+
+  .calc-fields { grid-template-columns: 1fr; }
+  .calc-result { padding: 1.5rem; }
+  .calc-cta { width: 100%; }
+  .calc-cta .btn { width: 100%; }
 
   .pilares { grid-template-columns: 1fr; }
 

@@ -91,6 +91,58 @@
     path.classList.add('drawn');
   }
 
+  // Calculadora de respaldo: W × h / (V × 0.8) → capacidad estándar
+  function initCalc() {
+    var form = document.getElementById('calcForm');
+    if (!form) return;
+    var selV = document.getElementById('calcV');
+    var inW = document.getElementById('calcW');
+    var inH = document.getElementById('calcH');
+    var outValue = document.getElementById('calcValue');
+    var outNote = document.getElementById('calcNote');
+    var waBtn = document.getElementById('calcWa');
+    var SIZES = [5, 7, 9, 12, 18, 26, 35, 40, 55, 65, 75, 100, 120, 150, 200, 250];
+
+    function update() {
+      var V = parseFloat(selV.value);
+      var W = parseFloat(inW.value);
+      var H = parseFloat(inH.value);
+
+      if (!(W > 0) || !(H > 0)) {
+        outValue.textContent = '— · —';
+        outNote.textContent = 'Escribe el consumo y las horas de respaldo para calcular.';
+        waBtn.href = 'https://wa.link/rk6bz0';
+        return;
+      }
+
+      // 0.8 = profundidad de descarga recomendada para no acortar la vida de la batería
+      var raw = (W * H) / (V * 0.8);
+      var size = null;
+      for (var i = 0; i < SIZES.length; i++) {
+        if (SIZES[i] >= raw) { size = SIZES[i]; break; }
+      }
+
+      var msg;
+      if (size) {
+        outValue.innerHTML = V + 'V · <em>' + size + ' Ah</em>';
+        outNote.textContent = 'Batería sellada AGM de ciclo profundo de ' + V + ' V y al menos ' +
+          Math.ceil(raw) + ' Ah. Te recomendamos la capacidad estándar de ' + size + ' Ah.';
+        msg = 'Hola, usé la calculadora del sitio: necesito una batería de ' + V + ' V y ' + size +
+          ' Ah aprox. (consumo ' + W + ' W, ' + H + ' h de respaldo). ¿Me pueden cotizar?';
+      } else {
+        outValue.innerHTML = V + 'V · <em>250+ Ah</em>';
+        outNote.textContent = 'Tu equipo necesita más de 250 Ah: se resuelve con un arreglo de varias baterías. Un asesor te arma la configuración.';
+        msg = 'Hola, usé la calculadora del sitio: necesito un arreglo de más de 250 Ah en ' + V +
+          ' V (consumo ' + W + ' W, ' + H + ' h de respaldo). ¿Me pueden cotizar?';
+      }
+      waBtn.href = 'https://wa.me/525549868279?text=' + encodeURIComponent(msg);
+    }
+
+    form.addEventListener('input', update);
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    update();
+  }
+
   // Stagger: retraso escalonado entre hermanos de cada grid
   function initStagger() {
     var groups = document.querySelectorAll('.apps-grid, .marcas-grid, .steps, .pilares, .testimonios-grid');
@@ -121,6 +173,7 @@
 
   initHeader();
   initNav();
+  initCalc();
   initStagger();
   initTilt();
   reveal('[data-reveal]', 'revealed', { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
