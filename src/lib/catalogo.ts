@@ -34,7 +34,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "166.2 × 131.3 × 174.3 mm",
     "peso": 10.0,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-100mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-100mr"
   },
   {
@@ -48,7 +48,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197.1 × 131.9 × 172.7 mm",
     "peso": 12.4,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-150mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-150mr"
   },
   {
@@ -62,7 +62,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "228.6 × 139.2 × 205.1 mm",
     "peso": 18.0,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-210mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-210mr"
   },
   {
@@ -76,7 +76,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "260.9 × 173.4 × 203.5 mm",
     "peso": 26.5,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-305plp.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-305plp"
   },
   {
@@ -90,7 +90,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "260.9 × 173.4 × 203.5 mm",
     "peso": 26.5,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-300mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-300mr"
   },
   {
@@ -104,7 +104,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "305.8 × 173.4 × 204.8 mm",
     "peso": 30.5,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-350mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-350mr"
   },
   {
@@ -118,7 +118,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "305.8 × 173.4 × 204.8 mm",
     "peso": 30.5,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-355plp.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-355plp"
   },
   {
@@ -132,7 +132,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "340.9 × 172.7 × 216.4 mm",
     "peso": 34.4,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-400mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-400mr"
   },
   {
@@ -146,7 +146,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "340.9 × 172.4 × 216.4 mm",
     "peso": 30.5,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-405plp.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-405plp"
   },
   {
@@ -160,7 +160,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "344.7 × 172.4 × 277.7 mm",
     "peso": 45.4,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-495plp.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-495plp"
   },
   {
@@ -174,7 +174,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "344.7 × 172.7 × 277.7 mm",
     "peso": 45.0,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-490mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-490mr"
   },
   {
@@ -188,7 +188,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "344.7 × 172.4 × 277.7 mm",
     "peso": 45.4,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-545plp.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-545plp"
   },
   {
@@ -202,7 +202,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "344.7 × 172.7 × 277.7 mm",
     "peso": 45.0,
     "terminal": "Tornillo",
-    "imagen": null,
+    "imagen": "/media/baterias/dynasty-ups12-540mr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/dynasty-cd-technologies/ups12-540mr"
   },
   {
@@ -216,7 +216,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "90 × 70 × 107 mm",
     "peso": 1.7,
     "terminal": "F1/F2",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np5-12.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np5-12"
   },
   {
@@ -230,7 +230,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 100 mm",
     "peso": 2.4,
     "terminal": "F1/F2",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np7-12.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np7-12"
   },
   {
@@ -244,7 +244,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 100 mm",
     "peso": 2.5,
     "terminal": "F2",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np9-12.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np9-12"
   },
   {
@@ -258,7 +258,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "181 × 76 × 167 mm",
     "peso": 6.17,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np18-12-nb.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np18-12-nb"
   },
   {
@@ -272,7 +272,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "166 × 175 × 125 mm",
     "peso": 9.07,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np24-12-nb.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np24-12-nb"
   },
   {
@@ -286,7 +286,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197 × 131 × 158 mm",
     "peso": 11.39,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np33-12-nb.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np33-12-nb"
   },
   {
@@ -300,7 +300,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197 × 131 × 158 mm",
     "peso": 11.39,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/genesis-np55-12-nb.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/genesis-enersys/np-series/np55-12-nb"
   },
   {
@@ -594,7 +594,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 53 × 99 mm",
     "peso": 2.0,
     "terminal": "F2-F1",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v5-4.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v5-4"
   },
   {
@@ -608,7 +608,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "166 × 175 × 125 mm",
     "peso": 8.4,
     "terminal": "T12",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v28-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v28-fr"
   },
   {
@@ -622,7 +622,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197 × 165 × 170 mm",
     "peso": 14.5,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v45-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v45-fr"
   },
   {
