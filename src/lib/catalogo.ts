@@ -1,7 +1,9 @@
 // Catálogo PSE Power Batteries — 71 modelos.
 // Generado 2026-07-22 desde fichas técnicas públicas: stondemand.mx (Power-Sonic, Dynasty C&D,
 // Genesis EnerSys) y bateriaskaisemexico.com (Kaise).
-// TODO: reemplazar `imagen` (hoy apunta a wixstatic de Kaise) por fotos propias.
+// `imagen` apunta a /media/baterias/<id>.(png|jpg): renders y fotos oficiales del
+// fabricante (power-sonic.com, cdtechno.com, enersys.com) y de Kaise México.
+// Sustituir por fotografía propia cuando el cliente la tenga.
 
 export type Marca = "Power-Sonic" | "Kaise" | "Dynasty" | "Genesis";
 
@@ -312,7 +314,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "90 × 70 × 101 mm",
     "peso": 1.55,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_a2a961dd2a8243beae00094ec01ee463~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-1245.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-1245"
   },
   {
@@ -326,7 +328,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": null,
     "peso": 1.5,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_372cd134452d4feeba251e2f7637fd42~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-125.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-125"
   },
   {
@@ -340,7 +342,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 94 mm",
     "peso": null,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_7ff515a2876a461e93a1507ce526e8cc~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-127s.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-127s"
   },
   {
@@ -354,7 +356,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 93 mm",
     "peso": 2.32,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_90ee31b324fa4578a3772857e422f8a7~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-1272.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-1272"
   },
   {
@@ -368,7 +370,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 94 mm",
     "peso": 2.8,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_18f704c0878944899d9dfbb03ed0a80a~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-1290.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-1290"
   },
   {
@@ -382,7 +384,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 98 × 97 mm",
     "peso": 3.7,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_d4a1f2f90a1745a2a69d6ce1caab44fd~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-12120.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12120"
   },
   {
@@ -396,7 +398,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "181.5 × 1675 × 1675 mm",
     "peso": 5.4,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_5db910097d984421b996e2bd2639ed59~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-12180.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12180"
   },
   {
@@ -410,7 +412,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "165 × 175 × 125 mm",
     "peso": 9.75,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_1884b78652ab4976bc1c9c8135b3030b~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kb-12260.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12260"
   },
   {
@@ -424,7 +426,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "195 × 130 × 155 mm",
     "peso": 11.0,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_2d883690c12c4378becf2c9d176030c0~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "imagen": "/media/baterias/kaise-kb-12330.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12330"
   },
   {
@@ -438,7 +440,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197.5 × 165.5 × 170 mm",
     "peso": 13.8,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_fa167b11b9f2485f8316bd21ce2d6777~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl12400.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl12400"
   },
   {
@@ -452,7 +454,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "224 × 132 × 205 mm",
     "peso": 17.3,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_3080fe0109744b6ea76250733da1076d~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl12550.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl12550"
   },
   {
@@ -466,7 +468,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "350 × 167 × 179 mm",
     "peso": 22.4,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_dd9b7452d97c4d3c9104b3ef5d47449f~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl-12650.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl-12650"
   },
   {
@@ -480,7 +482,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "258 × 166 × 206 mm",
     "peso": 24.0,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_4c764dc18ddc49cf97a67f03b6db0874~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
+    "imagen": "/media/baterias/kaise-kbl12750.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl12750"
   },
   {
@@ -494,7 +496,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "330 × 171 × 215 mm",
     "peso": 29.0,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_faad38751f6d4fcd99bb7bcdcd0fcbd8~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl-121000.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl-12100"
   },
   {
@@ -508,7 +510,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "522 × 238 × 218 mm",
     "peso": 59.1,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_f3624030b7b548dd83f4f07340e12c10~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl-122000.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/bateria-kaise-kbl-12200"
   },
   {
@@ -522,7 +524,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "482 × 170 × 240 mm",
     "peso": 44.8,
     "terminal": null,
-    "imagen": "https://static.wixstatic.com/media/daf909_7c46e065077343fd944c2fb5623bc295~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+    "imagen": "/media/baterias/kaise-kbl-121500.webp",
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kbl-121500"
   },
   {
@@ -536,7 +538,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": null,
     "peso": 2.5,
     "terminal": "F2",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pdc-1285.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pdc-series/pdc-1285"
   },
   {
@@ -550,7 +552,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "195 × 130 × 164 mm",
     "peso": 11.3,
     "terminal": "NB3",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pdc-12350.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pdc-series/pdc-12350"
   },
   {
@@ -564,7 +566,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "305 × 168 × 228 mm",
     "peso": 30.84,
     "terminal": "U",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pdc121000.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pdc-series/pdc121000"
   },
   {
@@ -578,7 +580,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "522 × 240 × 224 mm",
     "peso": 62.3,
     "terminal": "T11",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pdc122000.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pdc-series/pdc122000"
   },
   {
@@ -634,7 +636,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "229 × 138 × 214 mm",
     "peso": 16.5,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v55-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v55-fr"
   },
   {
@@ -648,7 +650,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "260 × 168 × 208 mm",
     "peso": 22.7,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v75t.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v75t"
   },
   {
@@ -662,7 +664,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "306 × 168 × 208 mm",
     "peso": 30.6,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v100-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v100-fr"
   },
   {
@@ -676,7 +678,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "408 × 177 × 22 mm",
     "peso": 36.3,
     "terminal": "T11",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v130-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v130-fr"
   },
   {
@@ -690,7 +692,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "345 × 172 × 274 mm",
     "peso": 30.6,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v140-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v140-fr"
   },
   {
@@ -704,7 +706,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "522 × 240 × 218 mm",
     "peso": 62.3,
     "terminal": "T11",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-pg-12v220-fr.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/pg-series/pg-12v220-fr"
   },
   {
@@ -718,7 +720,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "195 × 130 × 167 mm",
     "peso": 10.2,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-phr-12150.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/phr-series/phr-12150"
   },
   {
@@ -732,7 +734,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "229 × 138 × 203 mm",
     "peso": 17.3,
     "terminal": "T11",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-phr-12200.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/phr-series/phr-12200"
   },
   {
@@ -746,7 +748,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": null,
     "peso": 23.8,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-phr-12300.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/phr-series/phr-12300"
   },
   {
@@ -760,7 +762,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": null,
     "peso": null,
     "terminal": "T6",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-phr-12350.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/phr-series/phr-12350"
   },
   {
@@ -774,7 +776,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": null,
     "peso": null,
     "terminal": "T8",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-phr-12400.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/phr-series/phr-12400"
   },
   {
@@ -788,7 +790,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "96 × 25 × 62 mm",
     "peso": 0.35,
     "terminal": "F1",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1208wl.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1208wl"
   },
   {
@@ -802,7 +804,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "182 × 24 × 61 mm",
     "peso": 0.77,
     "terminal": "de",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1223.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1223"
   },
   {
@@ -816,7 +818,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "178 × 35 × 66 mm",
     "peso": 1.04,
     "terminal": "F1",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1229.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1229"
   },
   {
@@ -830,7 +832,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "133 × 67 × 66 mm",
     "peso": 1.32,
     "terminal": "F1",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1230.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1230"
   },
   {
@@ -844,7 +846,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "90 × 70 × 107 mm",
     "peso": 1.59,
     "terminal": "F1",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1250.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1250"
   },
   {
@@ -858,7 +860,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 98 mm",
     "peso": 2.18,
     "terminal": "F1/F2",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1270.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1270"
   },
   {
@@ -872,7 +874,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 65 × 98 mm",
     "peso": 2.72,
     "terminal": "F2",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-1290.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-1290"
   },
   {
@@ -886,7 +888,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "151 × 98 × 98 mm",
     "peso": 2.18,
     "terminal": "F2",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12120.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12120"
   },
   {
@@ -900,7 +902,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "181 × 76 × 167 mm",
     "peso": 5.72,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12180.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12180"
   },
   {
@@ -914,7 +916,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "167 × 177 × 125 mm",
     "peso": 7.71,
     "terminal": "NB",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12260.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12260"
   },
   {
@@ -928,7 +930,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "196 × 131 × 176 mm",
     "peso": 11.2,
     "terminal": "NB3",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12350.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12350"
   },
   {
@@ -942,7 +944,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "197 × 165 × 170 mm",
     "peso": 13.2,
     "terminal": "NB4:",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12400.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12400"
   },
   {
@@ -956,7 +958,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "230 × 138 × 228 mm",
     "peso": 16.3,
     "terminal": "U",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12550.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12550"
   },
   {
@@ -970,7 +972,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "260 × 168 × 228 mm",
     "peso": 23.0,
     "terminal": "U",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-12750.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-12750"
   },
   {
@@ -984,7 +986,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "305 × 168 × 228 mm",
     "peso": 30.84,
     "terminal": "U",
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-121000.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-121000"
   },
   {
@@ -998,7 +1000,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "330 × 172 × 212 mm",
     "peso": 32.0,
     "terminal": null,
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-121100.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-121100"
   },
   {
@@ -1012,7 +1014,7 @@ export const CATALOGO: Bateria[] = [
     "medidas": "522 × 268 × 226 mm",
     "peso": 73.0,
     "terminal": null,
-    "imagen": null,
+    "imagen": "/media/baterias/power-sonic-ps-122500.webp",
     "fuente": "https://www.stondemand.mx/página-principal/baterias-ácido-plomo/power-sonic/ps-series/ps-122500"
   }
 ] as Bateria[];
@@ -1029,3 +1031,14 @@ export const MARCA_SLUG: Record<Marca, string> = {
 export const SLUG_MARCA: Record<string, Marca> = Object.fromEntries(
   Object.entries(MARCA_SLUG).map(([m, s]) => [s, m as Marca])
 ) as Record<string, Marca>;
+
+/** Slug del modelo dentro de su marca: id sin el prefijo "<slug-marca>-". */
+export function slugModelo(b: Bateria): string {
+  const marca = MARCA_SLUG[b.marca];
+  return b.id.startsWith(`${marca}-`) ? b.id.slice(marca.length + 1) : b.id;
+}
+
+/** Ruta canónica de la ficha de una batería. */
+export function rutaBateria(b: Bateria): string {
+  return `/baterias/${MARCA_SLUG[b.marca]}/${slugModelo(b)}`;
+}
