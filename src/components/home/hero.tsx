@@ -42,13 +42,44 @@ function Tick({ target, className }: { target: number; className?: string }) {
   );
 }
 
+/** Registration cross — blueprint corner mark. */
+function Cross({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={`pointer-events-none absolute z-10 h-3 w-3 text-[var(--color-accent)] ${className ?? ""}`}
+    >
+      <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-current" />
+      <span className="absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-current" />
+    </span>
+  );
+}
+
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        {/* Left — statement + CTAs */}
-        <div>
-          <p className="hm-eyebrow">Power-Sonic · Kaise · Dynasty · Genesis</p>
+    <section className="relative isolate overflow-hidden border-b border-[var(--color-rule)] bg-[var(--color-paper-2)]">
+      {/* Blueprint grid — fades out toward the edges */}
+      <div
+        aria-hidden
+        className="hm-grid absolute inset-0 -z-10 [mask-image:radial-gradient(100%_85%_at_60%_35%,black,transparent_82%)]"
+      />
+
+      <div className="relative mx-auto w-full max-w-6xl px-6">
+        {/* Blueprint frame + registration marks around the fold */}
+        <div className="pointer-events-none absolute inset-x-6 top-10 bottom-10 border-x border-[var(--color-rule)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 top-10 hidden items-center justify-between font-mono text-[10px] tracking-[0.2em] text-[var(--color-ink-2)] uppercase sm:flex" aria-hidden>
+          <span>PSE · Ficha 001</span>
+          <span>Catálogo 2026 · 71 SKU</span>
+        </div>
+
+        <div className="relative grid gap-12 pt-20 pb-20 sm:pt-28 sm:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Cross className="top-8 -left-1" />
+          <Cross className="top-8 -right-1" />
+          <Cross className="bottom-8 -left-1" />
+          <Cross className="bottom-8 -right-1" />
+          {/* Left — statement + CTAs */}
+          <div>
+            <p className="hm-eyebrow">Power-Sonic · Kaise · Dynasty · Genesis</p>
 
           <h1 className="hm-display mt-5 text-[clamp(2.5rem,6vw+0.5rem,5rem)]">
             La batería exacta para el equipo que{" "}
@@ -85,7 +116,7 @@ export function Hero() {
 
         {/* Right — the giant number (Stat-Led figure) + specimen */}
         <div className="flex flex-col gap-6">
-          <div className="hm-card p-6 sm:p-8">
+          <div className="hm-card bg-[var(--color-paper)] p-6 shadow-[0_1px_2px_oklch(24%_0.05_260/0.05),0_18px_40px_-24px_oklch(24%_0.05_260/0.35)] sm:p-8">
             <div className="flex items-end gap-3">
               <Tick
                 target={30}
@@ -116,7 +147,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hm-plate relative hidden h-44 overflow-hidden sm:block">
+          <div className="hm-plate relative hidden h-44 overflow-hidden bg-[var(--color-paper)] shadow-[0_1px_2px_oklch(24%_0.05_260/0.05),0_18px_40px_-24px_oklch(24%_0.05_260/0.35)] sm:block">
             <Image
               src="/media/ps_group-shot-min.png"
               alt="Familia de baterías selladas Power-Sonic"
@@ -126,6 +157,7 @@ export function Hero() {
               className="object-contain p-4"
             />
           </div>
+        </div>
         </div>
       </div>
     </section>

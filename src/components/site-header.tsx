@@ -1,4 +1,4 @@
-/* Hallmark · genre: atmospheric · nav: N5 floating pill · design-system: design.md · designed-as-app */
+/* Hallmark · genre: editorial · nav: N6 masthead · design-system: design.md · designed-as-app */
 "use client";
 
 import { useState } from "react";
@@ -60,10 +60,18 @@ export function SiteHeader() {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
-      {/* N5 · Floating pill — blurred over the dark canvas, blooms show through */}
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 rounded-full border border-[var(--border)] bg-[color-mix(in_oklch,var(--color-paper-2)_80%,transparent)] pl-4 pr-2 backdrop-blur-xl">
-        <Marca />
+    <header className="sticky top-0 z-50">
+      {/* Thin mono promo line — datasheet header */}
+      <div className="border-b border-[var(--color-rule)] bg-[var(--color-paper-2)]">
+        <p className="mx-auto max-w-6xl px-4 py-1.5 text-center font-mono text-[11px] tracking-wide text-[var(--color-ink-2)]">
+          Aceptamos tarjetas · Meses sin intereses con tarjetas participantes
+        </p>
+      </div>
+
+      {/* N6 · Masthead bar — full width, hairline bottom rule */}
+      <div className="border-b border-[var(--color-rule)] bg-[color-mix(in_oklch,var(--color-paper)_85%,transparent)] backdrop-blur-md">
+        <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4">
+          <Marca />
 
         <nav
           aria-label="Navegación principal"
@@ -154,6 +162,7 @@ export function SiteHeader() {
               </nav>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </div>
     </header>
