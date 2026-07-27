@@ -1,3 +1,4 @@
+/* Hallmark · genre: atmospheric · macrostructure: Long Document · design-system: design.md · designed-as-app */
 "use client";
 
 import { useMemo, useState } from "react";
@@ -67,6 +68,12 @@ function calcular(volt: number, watts: number, horas: number): Resultado | null 
   };
 }
 
+const labelClase =
+  "font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-2)]";
+
+const campoClase =
+  "h-11 bg-[var(--color-paper-3)] border-[var(--border)] text-[var(--color-ink)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus)] focus-visible:border-[var(--color-focus)]";
+
 export function CalculadoraRespaldo() {
   const [volt, setVolt] = useState("12");
   const [watts, setWatts] = useState("100");
@@ -87,16 +94,18 @@ export function CalculadoraRespaldo() {
   }, [resultado]);
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-14">
       <form
-        className="border border-border bg-card p-6 sm:p-8"
+        className="hm-card p-6 sm:p-8"
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="grid gap-5 sm:grid-cols-3">
           <div className="space-y-2">
-            <Label htmlFor="calcV">Voltaje del sistema</Label>
+            <Label htmlFor="calcV" className={labelClase}>
+              Voltaje del sistema
+            </Label>
             <Select value={volt} onValueChange={setVolt}>
-              <SelectTrigger id="calcV" className="w-full">
+              <SelectTrigger id="calcV" className={`w-full ${campoClase}`}>
                 <SelectValue placeholder="Voltaje" />
               </SelectTrigger>
               <SelectContent>
@@ -108,7 +117,9 @@ export function CalculadoraRespaldo() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="calcW">Consumo (watts)</Label>
+            <Label htmlFor="calcW" className={labelClase}>
+              Consumo (watts)
+            </Label>
             <Input
               id="calcW"
               type="number"
@@ -118,11 +129,14 @@ export function CalculadoraRespaldo() {
               step={1}
               value={watts}
               onChange={(e) => setWatts(e.target.value)}
+              className={`${campoClase} font-mono tabular-nums`}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="calcH">Horas de respaldo</Label>
+            <Label htmlFor="calcH" className={labelClase}>
+              Horas de respaldo
+            </Label>
             <Input
               id="calcH"
               type="number"
@@ -132,22 +146,21 @@ export function CalculadoraRespaldo() {
               step={0.5}
               value={horas}
               onChange={(e) => setHoras(e.target.value)}
+              className={`${campoClase} font-mono tabular-nums`}
             />
           </div>
         </div>
 
         <div
-          className="mt-8 flex flex-col gap-6 border-t border-border pt-6 md:flex-row md:items-end md:justify-between"
+          className="mt-8 flex flex-col gap-6 border-t border-[var(--border)] pt-6 md:flex-row md:items-end md:justify-between"
           aria-live="polite"
         >
-          <div>
-            <p className="text-xs tracking-[0.15em] text-muted-foreground uppercase">
-              Batería recomendada
-            </p>
-            <p className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">
+          <div className="min-w-0">
+            <p className="hm-eyebrow">Batería recomendada</p>
+            <p className="mt-3 font-mono text-[clamp(2.25rem,6vw,3.25rem)] leading-none tabular-nums text-[var(--color-accent)]">
               {resultado ? resultado.valor : "— · —"}
             </p>
-            <p className="mt-2 max-w-lg text-sm text-muted-foreground">
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--color-ink-2)]">
               {resultado
                 ? resultado.nota
                 : "Escribe el consumo y las horas de respaldo para calcular."}
@@ -158,7 +171,7 @@ export function CalculadoraRespaldo() {
             <Button
               asChild
               size="lg"
-              className="h-11 bg-[var(--pse-green)] px-5 text-sm text-white hover:bg-[var(--pse-green)]/85"
+              className="h-11 rounded-full bg-[var(--color-wa)] px-5 text-sm font-semibold text-[var(--color-wa-ink)] hover:brightness-110 focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
             >
               <a
                 href={resultado ? linkConsulta(resultado.mensaje) : WHATSAPP_URL}
@@ -169,26 +182,27 @@ export function CalculadoraRespaldo() {
                 Cotizar esta batería
               </a>
             </Button>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Cálculo aproximado · un asesor lo confirma contigo
+            <p className="mt-2 font-mono text-[0.7rem] text-[var(--color-ink-2)]">
+              Cálculo aproximado · un asesor lo confirma
             </p>
           </div>
         </div>
       </form>
 
       <section>
-        <h2 className="text-lg font-semibold">Modelos que cumplen</h2>
+        <p className="hm-eyebrow">Del catálogo</p>
+        <h2 className="hm-display mt-3 text-2xl">Modelos que cumplen</h2>
         {sugerencias.length > 0 ? (
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(0,1fr))] sm:grid-cols-2">
             {sugerencias.map((b) => (
               <BateriaCard key={b.id} bateria={b} href={rutaBateria(b)} />
             ))}
           </div>
         ) : (
-          <p className="mt-3 max-w-lg text-sm text-muted-foreground">
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-[var(--color-ink-2)]">
             No tenemos un modelo de una sola pieza que cubra esa capacidad en{" "}
-            {resultado ? `${resultado.volt} V` : "ese voltaje"}. Escríbenos por WhatsApp y te
-            armamos el arreglo con varias baterías.
+            {resultado ? `${resultado.volt} V` : "ese voltaje"}. Escríbenos por
+            WhatsApp y te armamos el arreglo con varias baterías.
           </p>
         )}
       </section>

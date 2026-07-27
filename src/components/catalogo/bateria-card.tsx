@@ -1,10 +1,9 @@
+/* Hallmark · genre: atmospheric · macrostructure: Catalogue · design-system: design.md · designed-as-app */
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BatteryHighIcon } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRightIcon, BatteryHighIcon } from "@phosphor-icons/react/dist/ssr";
 
 import { BotonAgregar } from "@/components/carrito/boton-agregar";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { rutaBateria, type Bateria } from "@/lib/catalogo";
 
 export { rutaBateria };
@@ -13,12 +12,13 @@ export function BateriaCard({ bateria, href }: { bateria: Bateria; href?: string
   const destino = href ?? rutaBateria(bateria);
 
   return (
-    <Card className="group flex h-full flex-col gap-0 overflow-hidden p-0">
+    <article className="hm-card group flex h-full flex-col overflow-hidden">
       <Link
         href={destino}
-        className="flex flex-1 flex-col gap-4 p-5 transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="flex flex-1 flex-col gap-4 p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
       >
-        <div className="relative flex h-36 items-center justify-center overflow-hidden rounded-md bg-white">
+        {/* The one bright surface — specimen plate */}
+        <div className="hm-plate relative flex h-36 items-center justify-center overflow-hidden">
           {bateria.imagen ? (
             <Image
               src={bateria.imagen}
@@ -28,51 +28,50 @@ export function BateriaCard({ bateria, href }: { bateria: Bateria; href?: string
               className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <BatteryHighIcon size={44} weight="duotone" className="text-muted-foreground/50" />
+            <BatteryHighIcon size={40} weight="duotone" className="text-[var(--color-paper-3)]" />
           )}
+          <span className="absolute left-2 top-2 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-[var(--color-ink-2)]">
+            {bateria.marca}
+          </span>
         </div>
 
         <div className="flex items-start justify-between gap-3">
-          <Badge variant="secondary" className="uppercase tracking-wide">
-            {bateria.marca}
-          </Badge>
-          <ArrowUpRight
-            size={18}
+          <div className="space-y-1">
+            <h3 className="hm-display text-lg">{bateria.modelo}</h3>
+            <p className="font-mono text-sm tabular-nums text-[var(--color-accent)]">
+              {bateria.volt}V · {bateria.ah}Ah
+            </p>
+          </div>
+          <ArrowUpRightIcon
+            size={16}
             weight="bold"
-            className="mt-1 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+            className="mt-1 shrink-0 text-[var(--color-ink-2)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]"
           />
         </div>
 
-        <div className="space-y-1">
-          <h3 className="text-xl leading-tight font-semibold text-foreground">{bateria.modelo}</h3>
-          <p className="font-mono text-lg text-primary">
-            {bateria.volt} V <span className="text-muted-foreground">·</span> {bateria.ah} Ah
-          </p>
-        </div>
-
-        <dl className="mt-auto space-y-1 text-sm text-muted-foreground">
-          <div className="flex gap-2">
+        <dl className="mt-auto space-y-0.5 font-mono text-[0.7rem] text-[var(--color-ink-2)]">
+          <div>
             <dt className="sr-only">Tipo</dt>
-            <dd>{bateria.tipo}</dd>
+            <dd className="text-[var(--color-ink)]">{bateria.tipo}</dd>
           </div>
           {bateria.medidas && (
-            <div className="flex gap-2">
+            <div>
               <dt className="sr-only">Medidas</dt>
-              <dd className="font-mono text-xs">{bateria.medidas}</dd>
+              <dd className="tabular-nums">{bateria.medidas}</dd>
             </div>
           )}
           {bateria.peso !== null && (
-            <div className="flex gap-2">
+            <div>
               <dt className="sr-only">Peso</dt>
-              <dd className="font-mono text-xs">{bateria.peso} kg</dd>
+              <dd className="tabular-nums">{bateria.peso} kg</dd>
             </div>
           )}
         </dl>
       </Link>
 
-      <div className="border-t border-border p-4">
+      <div className="border-t border-[var(--border)] p-3">
         <BotonAgregar bateria={bateria} />
       </div>
-    </Card>
+    </article>
   );
 }

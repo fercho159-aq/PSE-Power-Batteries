@@ -39,6 +39,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --radius-pill: 999px;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -48,92 +49,175 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ===================================================================
+   Hallmark · genre: atmospheric · design-system: design.md · designed-as-app
+   Industrial oscuro — dark navy canvas, amber charge accent, royal interactive.
+   Single dark system (no light mode): :root IS the dark theme.
+   =================================================================== */
 :root {
-  /* Paleta PSE (heredada de legacy/css/styles.css) */
-  --pse-ink: #0B1B33;
-  --pse-ink-2: #122647;
-  --pse-royal: #1E56C8;
-  --pse-orange: #F59A23;
-  --pse-green: #1DA45B;
-  --pse-paper: #F2F4F7;
-  --pse-steel: #55657C;
+  color-scheme: dark;
 
-  --background: #FFFFFF;
-  --foreground: #0B1B33;
-  --card: #FFFFFF;
-  --card-foreground: #0B1B33;
-  --popover: #FFFFFF;
-  --popover-foreground: #0B1B33;
-  --primary: #1E56C8;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F2F4F7;
-  --secondary-foreground: #0B1B33;
-  --muted: #F2F4F7;
-  --muted-foreground: #55657C;
-  --accent: #F59A23;
-  --accent-foreground: #0B1B33;
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: #D7DDE6;
-  --input: #D7DDE6;
-  --ring: #1E56C8;
-  --chart-1: #1E56C8;
-  --chart-2: #F59A23;
-  --chart-3: #1DA45B;
-  --chart-4: #55657C;
-  --chart-5: #0B1B33;
+  /* Hallmark tokens — the phosphor palette */
+  --color-paper:      oklch(16% 0.035 258);      /* deep navy canvas */
+  --color-paper-2:    oklch(22.3% 0.052 258);    /* elevated card */
+  --color-paper-3:    oklch(27.5% 0.067 260);    /* raised surface */
+  --color-rule:       oklch(33.5% 0.087 261);    /* border (used low-alpha) */
+  --color-ink:        oklch(94.7% 0.014 258);    /* high text */
+  --color-ink-2:      oklch(75.2% 0.041 258);    /* mid text */
+  --color-accent:     oklch(76.2% 0.160 66);     /* amber */
+  --color-accent-ink: oklch(22% 0.05 258);       /* dark on amber */
+  --color-royal:      oklch(63.4% 0.171 261);    /* interactive */
+  --color-wa:         oklch(63.3% 0.154 153);    /* WhatsApp */
+  --color-wa-ink:     oklch(20% 0.04 150);       /* dark text on WhatsApp green */
+  --color-accent-line: oklch(76.2% 0.16 66 / 0.4); /* amber hover hairline */
+  --color-focus:      oklch(63.4% 0.171 261);
+
+  /* Brand aliases kept for existing markup that references --pse-* */
+  --pse-ink: var(--color-paper);
+  --pse-ink-2: var(--color-paper-2);
+  --pse-royal: var(--color-royal);
+  --pse-orange: var(--color-accent);
+  --pse-green: var(--color-wa);
+  --pse-paper: var(--color-ink);
+  --pse-steel: var(--color-ink-2);
+
+  /* Glow + bloom */
+  --glow-amber: 0 0 0 1px oklch(76.2% 0.160 66 / 0.25), 0 8px 28px -12px oklch(76.2% 0.160 66 / 0.45);
+  --bloom-amber: radial-gradient(60% 55% at 82% 8%, oklch(76.2% 0.160 66 / 0.16), transparent 70%);
+  --bloom-royal: radial-gradient(55% 50% at 8% 82%, oklch(63.4% 0.171 261 / 0.14), transparent 70%);
+
+  /* 4-pt spacing scale */
+  --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
+  --space-sm: 1rem;     --space-md: 1.5rem;  --space-lg: 2rem;
+  --space-xl: 3rem;     --space-2xl: 4.5rem; --space-3xl: 7rem;
+
+  --text-display: clamp(2.75rem, 6vw + 1rem, 6rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-short: 220ms;
+  --radius-pill: 999px;
+
+  /* shadcn mapping → dark industrial */
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --card: var(--color-paper-2);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-paper-2);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-royal);
+  --primary-foreground: oklch(98% 0.01 258);
+  --secondary: var(--color-paper-3);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-paper-2);
+  --muted-foreground: var(--color-ink-2);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-ink);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(33.5% 0.087 261 / 0.5);
+  --input: oklch(33.5% 0.087 261 / 0.6);
+  --ring: var(--color-focus);
+  --chart-1: var(--color-royal);
+  --chart-2: var(--color-accent);
+  --chart-3: var(--color-wa);
+  --chart-4: var(--color-ink-2);
+  --chart-5: var(--color-ink);
   --radius: 0.625rem;
-  --sidebar: #F2F4F7;
-  --sidebar-foreground: #0B1B33;
-  --sidebar-primary: #1E56C8;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #FFFFFF;
-  --sidebar-accent-foreground: #0B1B33;
-  --sidebar-border: #D7DDE6;
-  --sidebar-ring: #1E56C8;
+  --sidebar: var(--color-paper-2);
+  --sidebar-foreground: var(--color-ink);
+  --sidebar-primary: var(--color-royal);
+  --sidebar-primary-foreground: oklch(98% 0.01 258);
+  --sidebar-accent: var(--color-paper-3);
+  --sidebar-accent-foreground: var(--color-ink);
+  --sidebar-border: oklch(33.5% 0.087 261 / 0.5);
+  --sidebar-ring: var(--color-focus);
 }
 
+/* Single dark system: .dark inherits :root — kept only so a stray `dark`
+   class never reverts to a light palette. */
 .dark {
-  --background: #0B1B33;
-  --foreground: #F2F4F7;
-  --card: #122647;
-  --card-foreground: #F2F4F7;
-  --popover: #122647;
-  --popover-foreground: #F2F4F7;
-  --primary: #4C86F0;
-  --primary-foreground: #0B1B33;
-  --secondary: #122647;
-  --secondary-foreground: #F2F4F7;
-  --muted: #122647;
-  --muted-foreground: #9AAAC2;
-  --accent: #F59A23;
-  --accent-foreground: #0B1B33;
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(255, 255, 255, 0.14);
-  --input: rgba(255, 255, 255, 0.18);
-  --ring: #4C86F0;
-  --chart-1: #4C86F0;
-  --chart-2: #F59A23;
-  --chart-3: #1DA45B;
-  --chart-4: #9AAAC2;
-  --chart-5: #F2F4F7;
-  --sidebar: #0B1B33;
-  --sidebar-foreground: #F2F4F7;
-  --sidebar-primary: #4C86F0;
-  --sidebar-primary-foreground: #0B1B33;
-  --sidebar-accent: #122647;
-  --sidebar-accent-foreground: #F2F4F7;
-  --sidebar-border: rgba(255, 255, 255, 0.14);
-  --sidebar-ring: #4C86F0;
+  color-scheme: dark;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
-    @apply bg-background text-foreground;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: var(--bloom-amber), var(--bloom-royal);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   html {
-    @apply font-mono;
+    @apply font-sans;
   }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+  }
+}
+
+/* ===================================================================
+   Hallmark shared voice — industrial oscuro
+   =================================================================== */
+@layer components {
+  /* Mono eyebrow: numbered/labelled section kicker (phosphor voice) */
+  .hm-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  /* Display heading — Geist 600, tight tracking, roman only */
+  .hm-display {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    color: var(--color-ink);
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  /* Elevated card with amber glow on hover (atmospheric — no hairline-on-white) */
+  .hm-card {
+    background: var(--color-paper-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    transition:
+      transform var(--dur-short) var(--ease-out),
+      box-shadow var(--dur-short) var(--ease-out),
+      border-color var(--dur-short) var(--ease-out);
+  }
+  .hm-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-amber);
+    border-color: oklch(76.2% 0.16 66 / 0.35);
+  }
+
+  /* The one bright surface: product specimen plate */
+  .hm-plate {
+    background: oklch(97% 0.004 258);
+    border-radius: var(--radius-md);
+  }
+
+  /* Fade-in reveal — opacity only, motion-cut friendly */
+  .hm-reveal {
+    opacity: 0;
+    animation: hm-fade var(--dur-short) var(--ease-out) forwards;
+  }
+  @keyframes hm-fade {
+    to { opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-reveal { animation: none; opacity: 1; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -26,14 +26,15 @@ export default function Home() {
       <Aplicaciones />
       <Nosotros />
 
-      {/* CTA final */}
-      <section className="border-t border-border bg-[var(--pse-ink)] py-20 sm:py-24">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-8 px-6 md:flex-row md:items-center md:justify-between">
+      {/* CTA final — banda oscura elevada */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-24 pt-4">
+        <div className="hm-card flex flex-col items-start gap-8 p-8 sm:p-12 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="max-w-xl text-2xl font-semibold text-[var(--pse-paper)] sm:text-3xl">
-              Mándanos el modelo — o una foto de tu batería
+            <p className="hm-eyebrow">04 / Cotiza</p>
+            <h2 className="hm-display mt-4 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)]">
+              Mándanos el modelo o una foto de tu batería
             </h2>
-            <p className="mt-3 max-w-lg text-sm text-[var(--pse-paper)]/70">
+            <p className="mt-4 max-w-lg text-base text-[var(--color-ink-2)]">
               Identificamos el reemplazo y te cotizamos sin costo. Entrega en 24–48 horas.
             </p>
           </div>
@@ -41,14 +42,14 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="h-12 bg-[var(--pse-green)] px-6 text-sm text-white hover:bg-[var(--pse-green)]/85"
+              className="h-12 rounded-full bg-[var(--color-wa)] px-6 text-sm font-semibold text-[var(--color-wa-ink)] hover:brightness-110"
             >
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 <WhatsappLogoIcon weight="fill" data-icon="inline-start" />
                 Cotizar por WhatsApp
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="h-12 px-6 text-sm">
+            <Button asChild size="lg" className="h-12 rounded-full px-6 text-sm font-semibold">
               <Link href="/calculadora">
                 Calculadora de respaldo
                 <ArrowRightIcon weight="bold" data-icon="inline-end" />

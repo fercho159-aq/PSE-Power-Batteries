@@ -1,3 +1,4 @@
+/* Hallmark · genre: atmospheric · design-system: design.md · designed-as-app */
 "use client";
 
 import * as React from "react";
@@ -39,11 +40,12 @@ export function BotonAgregar({
   return (
     <div className={cn("flex items-center gap-2", className)}>
       {mostrarCantidad && (
-        <div className="flex items-center border border-border">
+        <div className="flex items-center rounded-full border border-[var(--border)] bg-[var(--color-paper-3)]">
           <Button
             type="button"
             variant="ghost"
             size="icon-sm"
+            className="rounded-full text-[var(--color-ink-2)] hover:text-[var(--color-ink)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus)] disabled:opacity-40"
             aria-label="Quitar una unidad"
             disabled={cantidad <= 1}
             onClick={(e) => {
@@ -54,7 +56,7 @@ export function BotonAgregar({
             <MinusIcon />
           </Button>
           <span
-            className="w-8 text-center text-xs tabular-nums"
+            className="w-8 text-center font-mono text-xs tabular-nums text-[var(--color-ink)]"
             aria-live="polite"
           >
             {cantidad}
@@ -63,6 +65,7 @@ export function BotonAgregar({
             type="button"
             variant="ghost"
             size="icon-sm"
+            className="rounded-full text-[var(--color-ink-2)] hover:text-[var(--color-ink)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
             aria-label="Agregar una unidad"
             onClick={(e) => {
               e.preventDefault();
@@ -74,7 +77,11 @@ export function BotonAgregar({
         </div>
       )}
 
-      <Button type="button" onClick={handleAgregar} className="flex-1">
+      <Button
+        type="button"
+        onClick={handleAgregar}
+        className="h-10 flex-1 rounded-full px-4 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
+      >
         <ShoppingCartSimpleIcon data-icon="inline-start" />
         Agregar al pedido
       </Button>

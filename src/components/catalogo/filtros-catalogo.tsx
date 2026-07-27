@@ -1,10 +1,10 @@
+/* Hallmark · genre: atmospheric · macrostructure: Catalogue · design-system: design.md · designed-as-app */
 "use client";
 
 import { useMemo, useState } from "react";
 import { MagnifyingGlass, WhatsappLogo, X } from "@phosphor-icons/react";
 
 import { BateriaCard } from "@/components/catalogo/bateria-card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { buscar, equivalentes, parseConsulta } from "@/lib/buscar";
@@ -21,7 +21,7 @@ const RANGOS_AH: RangoAh[] = [
   { id: "100+", etiqueta: "100 Ah o más", min: 100, max: Infinity },
 ];
 
-/** Chip de filtro reutilizable (marca, tipo, rango). */
+/** Chip de filtro reutilizable (marca, tipo, rango) — pill oscuro, activo en royal. */
 function Chip({
   activo,
   onClick,
@@ -37,15 +37,31 @@ function Chip({
       onClick={onClick}
       aria-pressed={activo}
       className={cn(
-        "rounded-full border px-3 py-1.5 text-sm transition-colors",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "rounded-full border px-3.5 py-1.5 font-mono text-xs tracking-wide transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-paper)]",
         activo
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
+          ? "border-[var(--color-royal)] bg-[var(--color-royal)] text-[var(--primary-foreground)]"
+          : "border-[var(--border)] bg-[var(--color-paper-3)] text-[var(--color-ink-2)] hover:border-[var(--color-accent-line)] hover:text-[var(--color-ink)]"
       )}
     >
       {children}
     </button>
+  );
+}
+
+/** Etiqueta de grupo de filtro (voz fósforo). */
+function GrupoFiltro({
+  etiqueta,
+  children,
+}: {
+  etiqueta: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="space-y-3">
+      <p className="hm-eyebrow text-[var(--color-ink-2)]">{etiqueta}</p>
+      <div className="flex flex-wrap gap-2">{children}</div>
+    </div>
   );
 }
 
@@ -122,68 +138,66 @@ export function FiltrosCatalogo({ catalogo = CATALOGO }: { catalogo?: Bateria[] 
 
   return (
     <div className="space-y-8">
-      <div className="space-y-6 rounded-xl border border-border bg-card p-5 sm:p-6">
+      {/* Panel de filtros — superficie elevada, voz fósforo */}
+      <div className="hm-card space-y-6 p-5 sm:p-6">
         <div className="relative">
           <MagnifyingGlass
             size={18}
-            className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-muted-foreground"
+            className="pointer-events-none absolute top-1/2 left-3.5 -translate-y-1/2 text-[var(--color-ink-2)]"
           />
           <Input
             type="search"
             value={consulta}
             onChange={(e) => setConsulta(e.target.value)}
-            placeholder="Busca por modelo, marca o medida: PS 1270, kaise 100ah, 12v 7ah"
+            placeholder="Busca: PS 1270, kaise 100ah, 12v 7ah"
             aria-label="Buscar batería"
-            className="h-12 pl-10 text-base"
+            className="h-12 rounded-full border-[var(--border)] bg-[var(--color-paper-3)] pl-11 font-mono text-sm text-[var(--color-ink)] placeholder:text-[var(--color-ink-2)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
           />
         </div>
 
-        <div className="space-y-3">
-          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Marca</p>
-          <div className="flex flex-wrap gap-2">
-            {marcasDisponibles.map((m) => (
-              <Chip key={m} activo={marcas.includes(m)} onClick={() => alternar(m, marcas, setMarcas)}>
-                {m}
-              </Chip>
-            ))}
-          </div>
-        </div>
+        <GrupoFiltro etiqueta="Marca">
+          {marcasDisponibles.map((m) => (
+            <Chip key={m} activo={marcas.includes(m)} onClick={() => alternar(m, marcas, setMarcas)}>
+              {m}
+            </Chip>
+          ))}
+        </GrupoFiltro>
 
-        <div className="space-y-3">
-          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Tipo</p>
-          <div className="flex flex-wrap gap-2">
-            {tiposDisponibles.map((t) => (
-              <Chip key={t} activo={tipos.includes(t)} onClick={() => alternar(t, tipos, setTipos)}>
-                {t}
-              </Chip>
-            ))}
-          </div>
-        </div>
+        <GrupoFiltro etiqueta="Tipo">
+          {tiposDisponibles.map((t) => (
+            <Chip key={t} activo={tipos.includes(t)} onClick={() => alternar(t, tipos, setTipos)}>
+              {t}
+            </Chip>
+          ))}
+        </GrupoFiltro>
 
-        <div className="space-y-3">
-          <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">
-            Capacidad
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {RANGOS_AH.map((r) => (
-              <Chip
-                key={r.id}
-                activo={rangos.includes(r.id)}
-                onClick={() => alternar(r.id, rangos, setRangos)}
-              >
-                {r.etiqueta}
-              </Chip>
-            ))}
-          </div>
-        </div>
+        <GrupoFiltro etiqueta="Capacidad">
+          {RANGOS_AH.map((r) => (
+            <Chip
+              key={r.id}
+              activo={rangos.includes(r.id)}
+              onClick={() => alternar(r.id, rangos, setRangos)}
+            >
+              {r.etiqueta}
+            </Chip>
+          ))}
+        </GrupoFiltro>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="font-mono text-sm text-muted-foreground">
-          Mostrando {resultados.length} de {catalogo.length} modelos
+      {/* Contador de inventario */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border)] pb-4">
+        <p className="font-mono text-sm text-[var(--color-ink-2)] tabular-nums">
+          Mostrando{" "}
+          <span className="text-[var(--color-accent)]">{resultados.length}</span> de{" "}
+          {catalogo.length} modelos
         </p>
         {hayFiltros && (
-          <Button variant="ghost" size="sm" onClick={limpiar}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={limpiar}
+            className="rounded-full font-mono text-xs text-[var(--color-ink-2)] hover:text-[var(--color-ink)]"
+          >
             <X size={16} />
             Limpiar filtros
           </Button>
@@ -191,16 +205,23 @@ export function FiltrosCatalogo({ catalogo = CATALOGO }: { catalogo?: Bateria[] 
       </div>
 
       {resultados.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {resultados.map((b) => (
-            <BateriaCard key={b.id} bateria={b} />
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(0,1fr))] gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {resultados.map((b, i) => (
+            <div
+              key={b.id}
+              className="hm-reveal"
+              style={{ animationDelay: `${Math.min(i, 12) * 30}ms` }}
+            >
+              <BateriaCard bateria={b} />
+            </div>
           ))}
         </div>
       ) : (
-        <div className="space-y-8 rounded-xl border border-dashed border-border bg-card p-6 sm:p-8">
-          <div className="space-y-2">
-            <h2 className="text-xl font-semibold">No encontramos ese modelo</h2>
-            <p className="max-w-2xl text-sm text-muted-foreground">
+        <div className="space-y-8 rounded-[var(--radius-lg)] border border-dashed border-[var(--border)] bg-[var(--color-paper-2)] p-6 sm:p-8">
+          <div className="space-y-3">
+            <p className="hm-eyebrow">Fuera de línea</p>
+            <h2 className="hm-display text-2xl">No encontramos ese modelo</h2>
+            <p className="max-w-2xl text-sm text-[var(--color-ink-2)]">
               Manejamos más modelos de los que aparecen en línea. Escríbenos el modelo o el voltaje y
               amperaje que necesitas y te confirmamos si lo tenemos en existencia.
             </p>
@@ -208,13 +229,15 @@ export function FiltrosCatalogo({ catalogo = CATALOGO }: { catalogo?: Bateria[] 
 
           {sugerencias.length > 0 && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Badge variant="secondary">Equivalentes</Badge>
-                <p className="text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="hm-eyebrow rounded-full border border-[var(--color-accent-line)] px-3 py-1">
+                  Equivalentes
+                </span>
+                <p className="font-mono text-xs text-[var(--color-ink-2)]">
                   Mismo voltaje y capacidad similar (±15%)
                 </p>
               </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(0,1fr))] gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {sugerencias.map((b) => (
                   <BateriaCard key={b.id} bateria={b} />
                 ))}
@@ -222,7 +245,11 @@ export function FiltrosCatalogo({ catalogo = CATALOGO }: { catalogo?: Bateria[] 
             </div>
           )}
 
-          <Button asChild size="lg">
+          <Button
+            asChild
+            size="lg"
+            className="h-12 rounded-full bg-[var(--color-wa)] px-6 font-semibold text-[var(--color-wa-ink)] hover:brightness-110"
+          >
             <a
               href={linkConsulta(
                 consulta.trim()

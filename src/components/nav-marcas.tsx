@@ -46,7 +46,7 @@ export function NavMarcas({ className }: { className?: string }) {
         <Button
           variant="ghost"
           size="default"
-          className={cn("text-sm font-medium", className)}
+          className={cn("h-9 rounded-full text-sm", className)}
         >
           Baterías
           <CaretDownIcon className="size-3.5 opacity-70" weight="bold" />

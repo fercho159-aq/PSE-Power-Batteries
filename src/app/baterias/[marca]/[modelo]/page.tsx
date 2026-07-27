@@ -1,14 +1,18 @@
+/* Hallmark · genre: atmospheric · macrostructure: Split Studio · design-system: design.md · designed-as-app */
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowSquareOut, CaretRight, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowSquareOutIcon,
+  BatteryHighIcon,
+  CaretRightIcon,
+  WhatsappLogoIcon,
+} from "@phosphor-icons/react/dist/ssr";
 
 import { BateriaCard } from "@/components/catalogo/bateria-card";
 import { BotonAgregar } from "@/components/carrito/boton-agregar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { equivalentes } from "@/lib/buscar";
 import { linkConsulta } from "@/lib/whatsapp";
 import {
@@ -21,8 +25,6 @@ import {
 } from "@/lib/catalogo";
 
 /** El slug del modelo es el id de la batería sin el prefijo "<slug-marca>-". */
-
-
 function buscarBateria(slugMarca: string, slug: string): Bateria | undefined {
   const marca = SLUG_MARCA[slugMarca];
   if (!marca) return undefined;
@@ -79,123 +81,145 @@ export default async function ModeloPage({
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:py-16">
+      {/* Breadcrumb — phosphor voice */}
       <nav
         aria-label="Ruta de navegación"
-        className="flex flex-wrap items-center gap-1 font-mono text-xs text-muted-foreground"
+        className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-[var(--color-ink-2)]"
       >
-        <Link href="/baterias" className="hover:text-foreground">
+        <Link href="/baterias" className="hover:text-[var(--color-ink)]">
           Baterías
         </Link>
-        <CaretRight className="size-3" aria-hidden />
-        <Link href={`/baterias/${slugMarca}`} className="hover:text-foreground">
+        <CaretRightIcon className="size-3 text-[var(--color-ink-2)]" aria-hidden />
+        <Link href={`/baterias/${slugMarca}`} className="hover:text-[var(--color-ink)]">
           {bateria.marca}
         </Link>
-        <CaretRight className="size-3" aria-hidden />
-        <span className="text-foreground">{bateria.modelo}</span>
+        <CaretRightIcon className="size-3 text-[var(--color-ink-2)]" aria-hidden />
+        <span className="text-[var(--color-ink)]">{bateria.modelo}</span>
       </nav>
 
-      <div className="mt-6 grid gap-8 sm:grid-cols-[minmax(0,320px)_1fr] sm:items-center">
-        {bateria.imagen && (
-          <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-border bg-white">
-            <Image
-              src={bateria.imagen}
-              alt={`Batería ${bateria.marca} ${bateria.modelo}`}
-              fill
-              priority
-              sizes="(max-width: 640px) 100vw, 320px"
-              className="object-contain p-6"
-            />
+      {/* Split Studio — díptico: imagen / specs */}
+      <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+        {/* Mitad imagen — la única superficie clara, montada como espécimen */}
+        <div className="lg:sticky lg:top-24">
+          <div className="hm-plate relative flex aspect-square w-full items-center justify-center overflow-hidden">
+            {bateria.imagen ? (
+              <Image
+                src={bateria.imagen}
+                alt={`Batería ${bateria.marca} ${bateria.modelo}`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 560px"
+                className="object-contain p-8 sm:p-12"
+              />
+            ) : (
+              <BatteryHighIcon
+                size={80}
+                weight="duotone"
+                className="text-[var(--color-paper-3)]"
+              />
+            )}
+            <span className="absolute left-3 top-3 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-2)]">
+              {bateria.marca}
+            </span>
           </div>
-        )}
-
-      <header>
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">
-          {bateria.marca} · Serie {bateria.serie}
-        </p>
-        <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">{bateria.modelo}</h1>
-        <p className="mt-2 text-muted-foreground">{bateria.tipo}</p>
-        <div className="mt-4 flex gap-2">
-          <Badge className="font-mono">{bateria.volt} V</Badge>
-          <Badge className="font-mono">{bateria.ah} Ah</Badge>
         </div>
-      </header>
-      </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr]">
-        <section aria-labelledby="especificaciones">
-          <h2 id="especificaciones" className="text-xl font-semibold">
-            Especificaciones
-          </h2>
-          <Separator className="mt-3" />
-          <dl className="mt-4 divide-y divide-border border border-border">
-            {especificaciones.map((fila) => (
-              <div
-                key={fila.etiqueta}
-                className="grid grid-cols-2 gap-4 px-4 py-3 text-sm"
-              >
-                <dt className="text-muted-foreground">{fila.etiqueta}</dt>
-                <dd className="font-mono text-foreground">{fila.valor ?? "—"}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        {/* Mitad specs — encabezado + tabla + acciones */}
+        <div>
+          <header>
+            <p className="hm-eyebrow">
+              {bateria.marca} · Serie {bateria.serie}
+            </p>
+            <h1 className="hm-display mt-3 text-[clamp(2rem,5vw,3.25rem)]">
+              {bateria.modelo}
+            </h1>
+            <p className="mt-3 text-[var(--color-ink-2)]">{bateria.tipo}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--color-paper-3)] px-3.5 py-1.5 font-mono text-sm tabular-nums text-[var(--color-accent)]">
+                {bateria.volt} V
+              </span>
+              <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--color-paper-3)] px-3.5 py-1.5 font-mono text-sm tabular-nums text-[var(--color-accent)]">
+                {bateria.ah} Ah
+              </span>
+            </div>
+          </header>
 
-        <aside className="h-fit border border-border bg-card p-6">
-          <p className="text-sm text-muted-foreground">
-            Agrega la cantidad que necesitas y termina tu pedido por WhatsApp.
-          </p>
-          <div className="mt-4 flex flex-col gap-3">
+          {/* Tabla de especificaciones — tarjeta oscura, bordes low-alpha */}
+          <section aria-labelledby="especificaciones" className="mt-8">
+            <h2 id="especificaciones" className="hm-eyebrow text-sm">
+              Especificaciones
+            </h2>
+            <dl className="mt-4 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--color-paper-2)]">
+              {especificaciones.map((fila) => (
+                <div
+                  key={fila.etiqueta}
+                  className="grid grid-cols-[1fr_auto] items-baseline gap-4 border-b border-[var(--border)] px-4 py-3 text-sm last:border-b-0"
+                >
+                  <dt className="font-mono text-xs uppercase tracking-[0.1em] text-[var(--color-ink-2)]">
+                    {fila.etiqueta}
+                  </dt>
+                  <dd className="text-right font-mono tabular-nums text-[var(--color-ink)]">
+                    {fila.valor ?? "—"}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          {/* Acciones — pedido (royal) + WhatsApp (verde) */}
+          <div className="mt-6 flex flex-col gap-3">
             <BotonAgregar bateria={bateria} mostrarCantidad />
             <Button
               asChild
-              variant="outline"
               size="lg"
-              className="border-[var(--pse-green)] text-[var(--pse-green)] hover:bg-[var(--pse-green)]/10 hover:text-[var(--pse-green)]"
+              className="h-12 rounded-full bg-[var(--color-wa)] px-6 text-sm font-semibold text-[var(--color-wa-ink)] hover:brightness-110"
             >
               <a
                 href={linkConsulta(textoWhatsApp)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <WhatsappLogo weight="fill" aria-hidden />
+                <WhatsappLogoIcon weight="fill" aria-hidden />
                 Preguntar por WhatsApp
               </a>
             </Button>
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            La disponibilidad se confirma por WhatsApp. Si no la tenemos en existencia,
-            la conseguimos por pedido y te decimos el tiempo de entrega.
+
+          <p className="mt-5 text-xs text-[var(--color-ink-2)]">
+            La disponibilidad se confirma por WhatsApp. Si no la tenemos en
+            existencia, la conseguimos por pedido y te decimos el tiempo de
+            entrega.
           </p>
           {bateria.fuente && (
             <a
               href={bateria.fuente}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1 font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs text-[var(--color-ink-2)] underline-offset-4 hover:text-[var(--color-ink)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
             >
               Ficha técnica original
-              <ArrowSquareOut className="size-3" aria-hidden />
+              <ArrowSquareOutIcon className="size-3" aria-hidden />
             </a>
           )}
-        </aside>
+        </div>
       </div>
 
       {similares.length > 0 && (
-        <section className="mt-16" aria-labelledby="equivalentes">
-          <h2 id="equivalentes" className="text-xl font-semibold">
-            Modelos equivalentes
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
+        <section className="mt-20" aria-labelledby="equivalentes">
+          <div className="flex items-baseline justify-between gap-3 border-b border-[var(--border)] pb-3">
+            <h2 id="equivalentes" className="hm-eyebrow text-sm">
+              Modelos equivalentes
+            </h2>
+            <span className="font-mono text-xs tabular-nums text-[var(--color-ink-2)]">
+              {bateria.volt}V · ~{bateria.ah}Ah
+            </span>
+          </div>
+          <p className="mt-3 max-w-2xl text-sm text-[var(--color-ink-2)]">
             Mismo voltaje y capacidad parecida, por si buscas una alternativa.
           </p>
-          <Separator className="mt-3" />
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {similares.map((b) => (
-              <BateriaCard
-                key={b.id}
-                bateria={b}
-                href={rutaBateria(b)}
-              />
+              <BateriaCard key={b.id} bateria={b} href={rutaBateria(b)} />
             ))}
           </div>
         </section>

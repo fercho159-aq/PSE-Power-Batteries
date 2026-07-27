@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Hallmark skill tooling (instalado con npx skills add, no producto)
+.agents/
+.claude/
+skills-lock.json

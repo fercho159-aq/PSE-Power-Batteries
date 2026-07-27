@@ -1,5 +1,7 @@
+/* Hallmark · genre: atmospheric · macrostructure: Stat-Led · design-system: design.md · designed-as-app */
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 
 import { CATALOGO, MARCA_SLUG, type Marca } from "@/lib/catalogo";
 
@@ -15,7 +17,7 @@ const FICHAS: Ficha[] = [
   {
     marca: "Power-Sonic",
     logo: "/media/logo-powersonic.png",
-    desc: "La línea más amplia del catálogo, de 2 V a 12 V.",
+    desc: "La línea más amplia del catálogo, de VRLA a ciclo profundo.",
     meta: "VRLA · AGM · Ciclo profundo",
   },
   {
@@ -44,41 +46,58 @@ function contarModelos(marca: Marca): number {
 
 export function MarcasGrid() {
   return (
-    <section className="border-t border-border bg-background py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <header className="mb-10">
-          <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">Marcas</p>
-          <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
-            Proveedores de primera línea
-          </h2>
-        </header>
+    <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
+      <header className="mb-10 max-w-2xl">
+        <p className="hm-eyebrow">01 / Marcas</p>
+        <h2 className="hm-display mt-4 text-[clamp(1.9rem,4vw,3rem)]">
+          Proveedores de primera línea
+        </h2>
+        <p className="mt-4 text-base text-[var(--color-ink-2)]">
+          Cuatro fabricantes, 71 modelos en catálogo. Cada marca cubre un tramo
+          distinto del rango: respaldo, ciclo profundo y alta descarga.
+        </p>
+      </header>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {FICHAS.map((f) => (
-            <Link
-              key={f.marca}
-              href={`/baterias/${MARCA_SLUG[f.marca]}`}
-              className="group flex flex-col justify-between gap-6 border border-border bg-card p-6 transition-colors hover:border-primary"
-            >
-              <div className="flex h-16 items-center">
-                <Image
-                  src={f.logo}
-                  alt={f.marca}
-                  width={220}
-                  height={64}
-                  className="h-auto max-h-16 w-auto object-contain"
-                />
-              </div>
-              <div>
-                <p className="text-sm text-card-foreground">{f.desc}</p>
-                <p className="mt-3 text-xs text-muted-foreground">{f.meta}</p>
-                <p className="mt-4 text-xs text-primary group-hover:underline">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {FICHAS.map((f) => (
+          <Link
+            key={f.marca}
+            href={`/baterias/${MARCA_SLUG[f.marca]}`}
+            className="hm-card group flex flex-col gap-5 p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
+          >
+            {/* El logo vive en la única superficie clara — la plate especimen */}
+            <div className="hm-plate flex h-24 items-center justify-center overflow-hidden px-5">
+              <Image
+                src={f.logo}
+                alt={f.marca}
+                width={220}
+                height={64}
+                className="h-auto max-h-12 w-auto max-w-full object-contain"
+              />
+            </div>
+
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <h3 className="hm-display text-lg">{f.marca}</h3>
+                <p className="mt-1.5 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-[var(--color-accent)]">
                   {contarModelos(f.marca)} modelos
                 </p>
               </div>
-            </Link>
-          ))}
-        </div>
+              <ArrowUpRightIcon
+                size={16}
+                weight="bold"
+                className="mt-1 shrink-0 text-[var(--color-ink-2)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]"
+              />
+            </div>
+
+            <div className="mt-auto space-y-2">
+              <p className="text-sm text-[var(--color-ink-2)]">{f.desc}</p>
+              <p className="font-mono text-[0.7rem] text-[var(--color-ink-2)]">
+                {f.meta}
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
