@@ -57,20 +57,20 @@
 :root {
   color-scheme: light;
 
-  /* Hallmark tokens — the blueprint palette */
+  /* Hallmark tokens — PSE brand: deep navy + green (from logo) */
   --color-paper:      oklch(98.6% 0.004 250);    /* cool near-white paper */
   --color-paper-2:    oklch(96.4% 0.006 252);    /* faint panel / card */
   --color-paper-3:    oklch(93.6% 0.009 254);    /* raised / input fill */
-  --color-rule:       oklch(24% 0.045 260 / 0.16); /* navy hairline */
-  --color-ink:        oklch(23% 0.05 260);       /* deep-navy ink */
-  --color-ink-2:      oklch(48% 0.045 258);      /* steel secondary */
-  --color-accent:     oklch(49% 0.187 262);      /* electric blue */
+  --color-rule:       oklch(26% 0.08 257 / 0.16);  /* navy hairline */
+  --color-ink:        oklch(26% 0.08 257);       /* brand deep navy (#0A2A54) */
+  --color-ink-2:      oklch(48% 0.05 256);       /* steel secondary */
+  --color-accent:     oklch(52% 0.145 151);      /* brand green (readable) */
   --color-accent-ink: oklch(99% 0 0);            /* white on accent */
-  --color-royal:      oklch(49% 0.187 262);      /* = accent */
-  --color-wa:         oklch(58% 0.15 152);       /* WhatsApp */
-  --color-wa-ink:     oklch(99% 0 0);            /* white on WhatsApp green */
-  --color-accent-line: oklch(49% 0.187 262 / 0.4); /* accent hover hairline */
-  --color-focus:      oklch(49% 0.187 262);
+  --color-royal:      oklch(52% 0.145 151);      /* = accent green (links/marks) */
+  --color-wa:         oklch(58% 0.15 152);       /* WhatsApp / brand green fill */
+  --color-wa-ink:     oklch(99% 0 0);            /* white on green */
+  --color-accent-line: oklch(52% 0.145 151 / 0.4); /* green hover hairline */
+  --color-focus:      oklch(52% 0.145 151);
 
   /* Brand aliases kept for existing markup that references --pse-* */
   --pse-ink: var(--color-ink);
@@ -84,13 +84,13 @@
   /* Whisper shadow + faint blueprint grid (hero only) */
   --glow-amber: 0 1px 2px oklch(24% 0.05 260 / 0.06), 0 6px 20px -12px oklch(24% 0.05 260 / 0.18);
   --blueprint-grid:
-    linear-gradient(oklch(49% 0.187 262 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px,
-    linear-gradient(90deg, oklch(49% 0.187 262 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px;
+    linear-gradient(oklch(52% 0.145 151 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, oklch(52% 0.145 151 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px;
 
-  /* Hero gradients — soft blue wash + rich navy→royal panel */
-  --grad-hero: radial-gradient(120% 130% at 100% 0%, oklch(92% 0.055 258), transparent 60%),
+  /* Hero gradients — soft green wash + rich navy→green panel */
+  --grad-hero: radial-gradient(120% 130% at 100% 0%, oklch(93% 0.05 156), transparent 60%),
                linear-gradient(180deg, var(--color-paper-2), var(--color-paper));
-  --grad-panel: linear-gradient(155deg, oklch(23% 0.05 260) 0%, oklch(30% 0.10 262) 55%, oklch(42% 0.17 262) 100%);
+  --grad-panel: linear-gradient(155deg, oklch(24% 0.08 257) 0%, oklch(32% 0.09 220) 55%, oklch(52% 0.145 151) 100%);
 
   /* 4-pt spacing scale */
   --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
@@ -110,7 +110,7 @@
   --card-foreground: var(--color-ink);
   --popover: var(--color-paper-2);
   --popover-foreground: var(--color-ink);
-  --primary: var(--color-royal);
+  --primary: var(--color-ink);
   --primary-foreground: oklch(98% 0.01 258);
   --secondary: var(--color-paper-3);
   --secondary-foreground: var(--color-ink);
@@ -130,7 +130,7 @@
   --radius: 0.625rem;
   --sidebar: var(--color-paper-2);
   --sidebar-foreground: var(--color-ink);
-  --sidebar-primary: var(--color-royal);
+  --sidebar-primary: var(--color-ink);
   --sidebar-primary-foreground: oklch(98% 0.01 258);
   --sidebar-accent: var(--color-paper-3);
   --sidebar-accent-foreground: var(--color-ink);

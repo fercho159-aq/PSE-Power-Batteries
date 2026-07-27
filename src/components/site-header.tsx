@@ -37,11 +37,11 @@ function Marca() {
       className="flex items-center gap-2.5 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
     >
       <Image
-        src="/media/logo-ps-final-1-03.png"
+        src="/media/logo-pse-hex.png"
         alt="PSE Power Batteries"
-        width={40}
-        height={40}
-        className="h-8 w-auto"
+        width={44}
+        height={39}
+        className="h-9 w-auto"
         priority
       />
       <span className="flex flex-col leading-none">

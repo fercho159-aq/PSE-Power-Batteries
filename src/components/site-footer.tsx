@@ -1,4 +1,5 @@
 /* Hallmark · genre: atmospheric · footer: Ft5 statement · design-system: design.md · designed-as-app */
+import Image from "next/image";
 import Link from "next/link";
 import {
   EnvelopeSimpleIcon,
@@ -36,7 +37,14 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-6xl gap-10 border-t border-[var(--border)] px-4 py-12 md:grid-cols-[1.2fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
-          <Link href="/" className="flex items-center gap-2 text-sm font-semibold text-[var(--color-ink)]">
+          <Link href="/" className="flex items-center gap-2.5 text-sm font-semibold text-[var(--color-ink)]">
+            <Image
+              src="/media/logo-pse-hex.png"
+              alt="PSE Power Batteries"
+              width={44}
+              height={39}
+              className="h-9 w-auto"
+            />
             PSE
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-ink-2)]">
               Power Batteries
