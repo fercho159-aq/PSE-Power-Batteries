@@ -87,6 +87,11 @@
     linear-gradient(oklch(49% 0.187 262 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px,
     linear-gradient(90deg, oklch(49% 0.187 262 / 0.09) 1px, transparent 1px) 0 0 / 32px 32px;
 
+  /* Hero gradients — soft blue wash + rich navy→royal panel */
+  --grad-hero: radial-gradient(120% 130% at 100% 0%, oklch(92% 0.055 258), transparent 60%),
+               linear-gradient(180deg, var(--color-paper-2), var(--color-paper));
+  --grad-panel: linear-gradient(155deg, oklch(23% 0.05 260) 0%, oklch(30% 0.10 262) 55%, oklch(42% 0.17 262) 100%);
+
   /* 4-pt spacing scale */
   --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
   --space-sm: 1rem;     --space-md: 1.5rem;  --space-lg: 2rem;

@@ -57,7 +57,7 @@ function Cross({ className }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-[var(--color-rule)] bg-[var(--color-paper-2)]">
+    <section className="relative isolate overflow-hidden border-b border-[var(--color-rule)] bg-[image:var(--grad-hero)]">
       {/* Blueprint grid — fades out toward the edges */}
       <div
         aria-hidden
@@ -114,48 +114,56 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right — the giant number (Stat-Led figure) + specimen */}
-        <div className="flex flex-col gap-6">
-          <div className="hm-card bg-[var(--color-paper)] p-6 shadow-[0_1px_2px_oklch(24%_0.05_260/0.05),0_18px_40px_-24px_oklch(24%_0.05_260/0.35)] sm:p-8">
-            <div className="flex items-end gap-3">
-              <Tick
-                target={30}
-                className="hm-display font-mono text-[clamp(4rem,12vw,7rem)] tabular-nums leading-none text-[var(--color-ink)]"
+        {/* Right — navy→royal gradient panel holding the stat card + product */}
+        <div className="relative rounded-2xl bg-[image:var(--grad-panel)] p-5 shadow-[0_1px_2px_oklch(24%_0.05_260/0.08),0_30px_60px_-30px_oklch(24%_0.05_260/0.6)] sm:p-6">
+          {/* faint blueprint grid inside the dark panel */}
+          <div
+            aria-hidden
+            className="hm-grid pointer-events-none absolute inset-0 rounded-2xl opacity-40 [mask-image:radial-gradient(120%_90%_at_80%_10%,black,transparent_75%)]"
+          />
+          <div className="relative flex flex-col gap-5">
+            <div className="rounded-xl bg-[var(--color-paper)] p-6 shadow-[0_10px_30px_-18px_oklch(24%_0.05_260/0.5)] sm:p-7">
+              <div className="flex items-end gap-3">
+                <Tick
+                  target={30}
+                  className="hm-display font-mono text-[clamp(4rem,12vw,6.5rem)] tabular-nums leading-none text-[var(--color-ink)]"
+                />
+                <span className="hm-display mb-2 font-mono text-4xl text-[var(--color-accent)]">
+                  +
+                </span>
+              </div>
+              <p className="mt-3 max-w-xs text-sm text-[var(--color-ink-2)]">
+                <span className="text-[var(--color-ink)]">años</span> manteniendo
+                encendidos sistemas críticos con proveedores de primera línea.
+              </p>
+
+              <div className="mt-6 grid grid-cols-3 gap-4 border-t border-[var(--color-rule)] pt-5 font-mono text-xs">
+                <div>
+                  <div className="text-lg tabular-nums text-[var(--color-ink)]">71</div>
+                  <div className="text-[var(--color-ink-2)]">modelos</div>
+                </div>
+                <div>
+                  <div className="text-lg tabular-nums text-[var(--color-ink)]">4</div>
+                  <div className="text-[var(--color-ink-2)]">marcas</div>
+                </div>
+                <div>
+                  <div className="text-lg tabular-nums text-[var(--color-ink)]">24–48h</div>
+                  <div className="text-[var(--color-ink-2)]">entrega</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Product family — floats on the gradient, no plate */}
+            <div className="relative h-40 sm:h-48">
+              <Image
+                src="/media/ps_group-shot-min.png"
+                alt="Familia de baterías selladas Power-Sonic"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 460px"
+                className="object-contain drop-shadow-[0_18px_24px_oklch(0%_0_0/0.45)]"
               />
-              <span className="hm-display mb-2 font-mono text-4xl text-[var(--color-ink-2)]">
-                +
-              </span>
             </div>
-            <p className="mt-3 max-w-xs text-sm text-[var(--color-ink-2)]">
-              <span className="text-[var(--color-ink)]">años</span> manteniendo
-              encendidos sistemas críticos con proveedores de primera línea.
-            </p>
-
-            <div className="mt-6 grid grid-cols-3 gap-4 border-t border-[var(--border)] pt-5 font-mono text-xs">
-              <div>
-                <div className="text-lg tabular-nums text-[var(--color-ink)]">71</div>
-                <div className="text-[var(--color-ink-2)]">modelos</div>
-              </div>
-              <div>
-                <div className="text-lg tabular-nums text-[var(--color-ink)]">4</div>
-                <div className="text-[var(--color-ink-2)]">marcas</div>
-              </div>
-              <div>
-                <div className="text-lg tabular-nums text-[var(--color-ink)]">24–48h</div>
-                <div className="text-[var(--color-ink-2)]">entrega</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="hm-plate relative hidden h-44 overflow-hidden bg-[var(--color-paper)] shadow-[0_1px_2px_oklch(24%_0.05_260/0.05),0_18px_40px_-24px_oklch(24%_0.05_260/0.35)] sm:block">
-            <Image
-              src="/media/ps_group-shot-min.png"
-              alt="Familia de baterías selladas Power-Sonic"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 460px"
-              className="object-contain p-4"
-            />
           </div>
         </div>
         </div>
