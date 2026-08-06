@@ -439,7 +439,7 @@ export const CATALOGO: Bateria[] = [
     "volt": 12.0,
     "ah": 18.0,
     "tipo": "Respaldo / Seguridad",
-    "medidas": "181.5 × 1675 × 1675 mm",
+    "medidas": "181 × 76 × 167 mm",
     "peso": 5.4,
     "terminal": "M5",
     "imagen": "/media/baterias/kaise-kb-12180.webp",
