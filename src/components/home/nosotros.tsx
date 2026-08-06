@@ -40,7 +40,7 @@ export function Nosotros() {
       className="mx-auto w-full max-w-6xl scroll-mt-28 px-6 py-20 sm:py-24"
     >
       <header className="max-w-2xl">
-        <p className="hm-eyebrow">03 / Nosotros</p>
+        <p className="hm-eyebrow">04 / Nosotros</p>
         <h2 className="hm-display mt-4 text-[clamp(1.9rem,4vw,3rem)]">
           Proyectos y Sistemas en Energía
         </h2>

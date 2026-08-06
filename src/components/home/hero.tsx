@@ -82,9 +82,9 @@ export function Hero() {
             <p className="hm-eyebrow">Power-Sonic · Kaise · Dynasty · Genesis</p>
 
           <h1 className="hm-display mt-5 text-[clamp(2.5rem,6vw+0.5rem,5rem)]">
-            La batería exacta para el equipo que{" "}
+            Equipo crítico, batería exacta. Entrega en{" "}
             <span className="border-b-2 border-[var(--color-accent)] pb-0.5">
-              no puede apagarse
+              24–48 horas
             </span>
             .
           </h1>

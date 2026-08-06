@@ -1,6 +1,5 @@
 /* Hallmark · genre: atmospheric · macrostructure: Split Studio · design-system: design.md · designed-as-app */
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -11,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 
 import { BateriaCard } from "@/components/catalogo/bateria-card";
+import { GaleriaModelo } from "@/components/catalogo/galeria-modelo";
 import { BotonAgregar } from "@/components/carrito/boton-agregar";
 import { Button } from "@/components/ui/button";
 import { equivalentes } from "@/lib/buscar";
@@ -67,6 +67,9 @@ export default async function ModeloPage({
     .filter((b) => b.id !== bateria.id)
     .slice(0, 6);
 
+  // Fotos del producto: la galería si existe, si no la imagen única.
+  const vistas = bateria.galeria ?? (bateria.imagen ? [bateria.imagen] : []);
+
   const especificaciones: { etiqueta: string; valor: string | null }[] = [
     { etiqueta: "Voltaje", valor: `${bateria.volt} V` },
     { etiqueta: "Capacidad", valor: `${bateria.ah} Ah` },
@@ -101,27 +104,24 @@ export default async function ModeloPage({
       <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
         {/* Mitad imagen — la única superficie clara, montada como espécimen */}
         <div className="lg:sticky lg:top-24">
-          <div className="hm-plate relative flex aspect-square w-full items-center justify-center overflow-hidden">
-            {bateria.imagen ? (
-              <Image
-                src={bateria.imagen}
-                alt={`Batería ${bateria.marca} ${bateria.modelo}`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-contain p-8 sm:p-12"
-              />
-            ) : (
+          {vistas.length > 0 ? (
+            <GaleriaModelo
+              imagenes={vistas}
+              alt={`Batería ${bateria.marca} ${bateria.modelo}`}
+              marca={bateria.marca}
+            />
+          ) : (
+            <div className="hm-plate relative flex aspect-square w-full items-center justify-center overflow-hidden">
               <BatteryHighIcon
                 size={80}
                 weight="duotone"
                 className="text-[var(--color-paper-3)]"
               />
-            )}
-            <span className="absolute left-3 top-3 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-2)]">
-              {bateria.marca}
-            </span>
-          </div>
+              <span className="absolute left-3 top-3 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-ink-2)]">
+                {bateria.marca}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Mitad specs — encabezado + tabla + acciones */}

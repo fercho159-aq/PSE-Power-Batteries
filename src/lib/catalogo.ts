@@ -1,9 +1,10 @@
 // Catálogo PSE Power Batteries — 71 modelos.
 // Generado 2026-07-22 desde fichas técnicas públicas: stondemand.mx (Power-Sonic, Dynasty C&D,
 // Genesis EnerSys) y bateriaskaisemexico.com (Kaise).
-// `imagen` apunta a /media/baterias/<id>.(png|jpg): renders y fotos oficiales del
+// `imagen` apunta a /media/baterias/<id>.webp: renders y fotos oficiales del
 // fabricante (power-sonic.com, cdtechno.com, enersys.com) y de Kaise México.
 // Sustituir por fotografía propia cuando el cliente la tenga.
+// Los KB 12V de 4.5 a 26 Ah ya usan fotografía propia del cliente (5 vistas en `galeria`).
 
 export type Marca = "Power-Sonic" | "Kaise" | "Dynasty" | "Genesis";
 
@@ -19,6 +20,8 @@ export type Bateria = {
   peso: number | null;
   terminal: string | null;
   imagen: string | null;
+  /** Vistas adicionales del producto (frente, perfil, tres cuartos, superior). */
+  galeria?: string[];
   fuente: string;
 };
 
@@ -313,8 +316,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "90 × 70 × 101 mm",
     "peso": 1.55,
-    "terminal": null,
+    "terminal": "F1",
     "imagen": "/media/baterias/kaise-kb-1245.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-1245.webp",
+      "/media/baterias/kaise-kb-1245-2.webp",
+      "/media/baterias/kaise-kb-1245-3.webp",
+      "/media/baterias/kaise-kb-1245-4.webp",
+      "/media/baterias/kaise-kb-1245-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-1245"
   },
   {
@@ -327,8 +337,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": null,
     "peso": 1.5,
-    "terminal": null,
+    "terminal": "F2",
     "imagen": "/media/baterias/kaise-kb-125.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-125.webp",
+      "/media/baterias/kaise-kb-125-2.webp",
+      "/media/baterias/kaise-kb-125-3.webp",
+      "/media/baterias/kaise-kb-125-4.webp",
+      "/media/baterias/kaise-kb-125-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-125"
   },
   {
@@ -341,8 +358,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "151 × 65 × 94 mm",
     "peso": null,
-    "terminal": null,
+    "terminal": "F2",
     "imagen": "/media/baterias/kaise-kb-127s.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-127s.webp",
+      "/media/baterias/kaise-kb-127s-2.webp",
+      "/media/baterias/kaise-kb-127s-3.webp",
+      "/media/baterias/kaise-kb-127s-4.webp",
+      "/media/baterias/kaise-kb-127s-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-127s"
   },
   {
@@ -355,8 +379,14 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "151 × 65 × 93 mm",
     "peso": 2.32,
-    "terminal": null,
+    "terminal": "F2",
     "imagen": "/media/baterias/kaise-kb-1272.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-1272.webp",
+      "/media/baterias/kaise-kb-1272-2.webp",
+      "/media/baterias/kaise-kb-1272-3.webp",
+      "/media/baterias/kaise-kb-1272-4.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-1272"
   },
   {
@@ -369,8 +399,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "151 × 65 × 94 mm",
     "peso": 2.8,
-    "terminal": null,
+    "terminal": "F2",
     "imagen": "/media/baterias/kaise-kb-1290.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-1290.webp",
+      "/media/baterias/kaise-kb-1290-2.webp",
+      "/media/baterias/kaise-kb-1290-3.webp",
+      "/media/baterias/kaise-kb-1290-4.webp",
+      "/media/baterias/kaise-kb-1290-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-1290"
   },
   {
@@ -383,8 +420,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "151 × 98 × 97 mm",
     "peso": 3.7,
-    "terminal": null,
+    "terminal": "F2",
     "imagen": "/media/baterias/kaise-kb-12120.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-12120.webp",
+      "/media/baterias/kaise-kb-12120-2.webp",
+      "/media/baterias/kaise-kb-12120-3.webp",
+      "/media/baterias/kaise-kb-12120-4.webp",
+      "/media/baterias/kaise-kb-12120-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12120"
   },
   {
@@ -397,8 +441,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "181.5 × 1675 × 1675 mm",
     "peso": 5.4,
-    "terminal": null,
+    "terminal": "M5",
     "imagen": "/media/baterias/kaise-kb-12180.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-12180.webp",
+      "/media/baterias/kaise-kb-12180-2.webp",
+      "/media/baterias/kaise-kb-12180-3.webp",
+      "/media/baterias/kaise-kb-12180-4.webp",
+      "/media/baterias/kaise-kb-12180-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12180"
   },
   {
@@ -411,8 +462,15 @@ export const CATALOGO: Bateria[] = [
     "tipo": "Respaldo / Seguridad",
     "medidas": "165 × 175 × 125 mm",
     "peso": 9.75,
-    "terminal": null,
+    "terminal": "M5",
     "imagen": "/media/baterias/kaise-kb-12260.webp",
+    "galeria": [
+      "/media/baterias/kaise-kb-12260.webp",
+      "/media/baterias/kaise-kb-12260-2.webp",
+      "/media/baterias/kaise-kb-12260-3.webp",
+      "/media/baterias/kaise-kb-12260-4.webp",
+      "/media/baterias/kaise-kb-12260-5.webp"
+    ],
     "fuente": "https://www.bateriaskaisemexico.com/product-page/batería-kaise-kb-12260"
   },
   {

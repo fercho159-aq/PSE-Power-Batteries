@@ -37,7 +37,7 @@ export function Aplicaciones() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
       <header className="mb-10 max-w-2xl">
-        <p className="hm-eyebrow">02 / Aplicaciones</p>
+        <p className="hm-eyebrow">03 / Aplicaciones</p>
         <h2 className="hm-display mt-4 text-[clamp(1.9rem,4vw,3rem)]">
           La batería para el uso que necesitas
         </h2>

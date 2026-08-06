@@ -18,14 +18,14 @@ export function BateriaCard({ bateria, href }: { bateria: Bateria; href?: string
         className="flex flex-1 flex-col gap-4 p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)]"
       >
         {/* The one bright surface — specimen plate */}
-        <div className="hm-plate relative flex h-36 items-center justify-center overflow-hidden">
+        <div className="hm-plate relative flex h-56 items-center justify-center overflow-hidden sm:h-64">
           {bateria.imagen ? (
             <Image
               src={bateria.imagen}
               alt={`Batería ${bateria.marca} ${bateria.modelo}`}
               fill
-              sizes="(max-width: 640px) 100vw, 300px"
-              className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 400px"
+              className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
             <BatteryHighIcon size={40} weight="duotone" className="text-[var(--color-paper-3)]" />

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ArrowRightIcon, WhatsappLogoIcon } from "@phosphor-icons/react/ssr";
 
 import { Aplicaciones } from "@/components/home/aplicaciones";
+import { Destacados } from "@/components/home/destacados";
 import { Hero } from "@/components/home/hero";
 import { MarcasGrid } from "@/components/home/marcas-grid";
 import { Nosotros } from "@/components/home/nosotros";
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Destacados />
       <MarcasGrid />
       <Aplicaciones />
       <Nosotros />
@@ -30,7 +32,7 @@ export default function Home() {
       <section className="mx-auto w-full max-w-6xl px-6 pb-24 pt-4">
         <div className="hm-card flex flex-col items-start gap-8 p-8 sm:p-12 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="hm-eyebrow">04 / Cotiza</p>
+            <p className="hm-eyebrow">05 / Cotiza</p>
             <h2 className="hm-display mt-4 max-w-xl text-[clamp(1.75rem,3.5vw,2.75rem)]">
               Mándanos el modelo o una foto de tu batería
             </h2>
