@@ -27,6 +27,7 @@ import {
 const ENLACES = [
   { href: "/", etiqueta: "Inicio" },
   { href: "/calculadora", etiqueta: "Calculadora" },
+  { href: "/blog", etiqueta: "Blog" },
   { href: "/#nosotros", etiqueta: "Nosotros" },
 ];
 
@@ -83,6 +84,9 @@ export function SiteHeader() {
           <NavMarcas />
           <Button variant="ghost" asChild className="h-9 rounded-full text-sm">
             <Link href="/calculadora">Calculadora</Link>
+          </Button>
+          <Button variant="ghost" asChild className="h-9 rounded-full text-sm">
+            <Link href="/blog">Blog</Link>
           </Button>
           <Button variant="ghost" asChild className="h-9 rounded-full text-sm">
             <Link href="/#nosotros">Nosotros</Link>
