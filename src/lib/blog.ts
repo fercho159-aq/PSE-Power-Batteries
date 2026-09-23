@@ -4,6 +4,7 @@
 import type { ComponentType } from "react";
 
 import { articulo as bateriasSelladasCdmx } from "@/content/blog/baterias-selladas-cdmx";
+import { articulo as comoProlongarVidaUtilBateria } from "@/content/blog/como-prolongar-vida-util-bateria";
 
 export type PreguntaFrecuente = { pregunta: string; respuesta: string };
 
@@ -23,7 +24,7 @@ export type Articulo = {
   preguntas?: PreguntaFrecuente[];
 };
 
-export const ARTICULOS: Articulo[] = [bateriasSelladasCdmx].sort((a, b) =>
+export const ARTICULOS: Articulo[] = [comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
   b.fecha.localeCompare(a.fecha)
 );
 
