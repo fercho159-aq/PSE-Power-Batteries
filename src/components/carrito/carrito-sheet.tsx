@@ -9,6 +9,7 @@ import {
   TrashIcon,
   WhatsappLogoIcon,
 } from "@phosphor-icons/react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +36,10 @@ export function CarritoSheet() {
   } = useCarrito();
 
   function enviarPorWhatsApp() {
+    sendGAEvent("event", "enviar_pedido", {
+      productos: items.length,
+      piezas: total,
+    });
     window.open(linkPedido(items), "_blank", "noopener,noreferrer");
   }
 

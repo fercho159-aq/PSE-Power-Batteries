@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
-import { CarritoProvider } from "@/components/carrito/carrito-context";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { Toaster } from "@/components/ui/sonner";
+import { RastreoClics } from "@/components/rastreo-clics";
+import { GOOGLE_SITE_VERIFICATION, GOOGLE_TAG_ID, SITIO } from "@/lib/analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +23,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const SITIO = "https://psepowerbatteries.com";
 const TITULO = "PSE Power Batteries | Baterías selladas VRLA/AGM";
 const DESCRIPCION =
   "Distribuidor de baterías selladas VRLA/AGM Power-Sonic, Kaise, Dynasty y Genesis para equipo médico, sistemas de emergencia, telecomunicaciones y movilidad eléctrica. Cotiza sin costo, entrega en 24–48 horas.";
@@ -72,6 +70,7 @@ export const metadata: Metadata = {
     images: ["/media/ps_group-shot-min.png"],
   },
   icons: { icon: "/media/logo-ps-final-1-03.png" },
+  verification: { google: GOOGLE_SITE_VERIFICATION },
 };
 
 export default function RootLayout({
@@ -90,13 +89,10 @@ export default function RootLayout({
       )}
     >
       <body className="flex min-h-full flex-col font-sans">
-        <CarritoProvider>
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-          <Toaster position="bottom-right" />
-        </CarritoProvider>
+        {children}
+        <RastreoClics />
       </body>
+      <GoogleAnalytics gaId={GOOGLE_TAG_ID} />
     </html>
   );
 }
