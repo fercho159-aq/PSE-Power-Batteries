@@ -5,6 +5,7 @@ import type { ComponentType } from "react";
 
 import { articulo as bateriasSelladasCdmx } from "@/content/blog/baterias-selladas-cdmx";
 import { articulo as comoProlongarVidaUtilBateria } from "@/content/blog/como-prolongar-vida-util-bateria";
+import { articulo as elegirBateriasAgmRespaldoConfiables } from "@/content/blog/elegir-baterias-agm-respaldo-confiables";
 
 export type PreguntaFrecuente = { pregunta: string; respuesta: string };
 
@@ -24,7 +25,7 @@ export type Articulo = {
   preguntas?: PreguntaFrecuente[];
 };
 
-export const ARTICULOS: Articulo[] = [comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
+export const ARTICULOS: Articulo[] = [elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
   b.fecha.localeCompare(a.fecha)
 );
 
