@@ -18,7 +18,7 @@ import { TARJETA } from "@/lib/tarjeta";
 
 export const metadata: Metadata = {
   title: `${TARJETA.nombre} · Tarjeta digital`,
-  description: `${TARJETA.puesto} en ${TARJETA.empresa}. ${TARJETA.lema}`,
+  description: `${TARJETA.nombre}, ${TARJETA.empresa}. ${TARJETA.lema}`,
 };
 
 type Enlace = {
@@ -35,6 +35,13 @@ const CONTACTO: Enlace[] = [
     etiqueta: "Llamar",
     detalle: TARJETA.telefono,
     Icono: PhoneIcon,
+  },
+  {
+    href: TARJETA.whatsapp,
+    etiqueta: "WhatsApp",
+    detalle: TARJETA.whatsappNumero,
+    Icono: WhatsappLogoIcon,
+    externo: true,
   },
   {
     href: `mailto:${TARJETA.correo}`,
@@ -130,7 +137,9 @@ export default function TarjetaPage() {
           </div>
 
           <h1 className="hm-display mt-4 text-3xl">{TARJETA.nombre}</h1>
-          <p className="mt-1 text-sm text-[var(--color-ink-2)]">{TARJETA.puesto}</p>
+          {TARJETA.puesto ? (
+            <p className="mt-1 text-sm text-[var(--color-ink-2)]">{TARJETA.puesto}</p>
+          ) : null}
           <p className="hm-eyebrow mt-3">{TARJETA.empresa}</p>
           <p className="mt-3 max-w-xs text-sm text-[var(--color-ink-2)]">{TARJETA.lema}</p>
         </div>
