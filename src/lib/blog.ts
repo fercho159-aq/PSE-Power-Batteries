@@ -13,6 +13,7 @@ import { articulo as bateriasDeCicloProfundo } from "@/content/blog/baterias-de-
 import { articulo as porQueUnaBateriaPierdeCapacidad } from "@/content/blog/por-que-una-bateria-pierde-capacidad";
 import { articulo as bateriasDeLitioVentajasAplicaciones } from "@/content/blog/baterias-de-litio-ventajas-aplicaciones";
 import { articulo as importanciaSistemaRespaldoEnergia } from "@/content/blog/importancia-sistema-respaldo-energia";
+import { articulo as funcionBateriasSistemaSolar } from "@/content/blog/funcion-baterias-sistema-solar";
 
 export type PreguntaFrecuente = { pregunta: string; respuesta: string };
 
@@ -32,7 +33,7 @@ export type Articulo = {
   preguntas?: PreguntaFrecuente[];
 };
 
-export const ARTICULOS: Articulo[] = [importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
+export const ARTICULOS: Articulo[] = [funcionBateriasSistemaSolar, importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
   b.fecha.localeCompare(a.fecha)
 );
 
