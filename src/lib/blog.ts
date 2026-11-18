@@ -16,6 +16,7 @@ import { articulo as importanciaSistemaRespaldoEnergia } from "@/content/blog/im
 import { articulo as funcionBateriasSistemaSolar } from "@/content/blog/funcion-baterias-sistema-solar";
 import { articulo as bateriasParaEquiposMedicos } from "@/content/blog/baterias-para-equipos-medicos";
 import { articulo as bateriasParaSistemasDeSeguridad } from "@/content/blog/baterias-para-sistemas-de-seguridad";
+import { articulo as bateriasParaTelecomunicacionesRespaldoEnergia } from "@/content/blog/baterias-para-telecomunicaciones-respaldo-energia";
 
 export type PreguntaFrecuente = { pregunta: string; respuesta: string };
 
@@ -35,7 +36,7 @@ export type Articulo = {
   preguntas?: PreguntaFrecuente[];
 };
 
-export const ARTICULOS: Articulo[] = [bateriasParaSistemasDeSeguridad, bateriasParaEquiposMedicos, funcionBateriasSistemaSolar, importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
+export const ARTICULOS: Articulo[] = [bateriasParaTelecomunicacionesRespaldoEnergia, bateriasParaSistemasDeSeguridad, bateriasParaEquiposMedicos, funcionBateriasSistemaSolar, importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
   b.fecha.localeCompare(a.fecha)
 );
 
