@@ -19,6 +19,7 @@ import { articulo as bateriasParaSistemasDeSeguridad } from "@/content/blog/bate
 import { articulo as bateriasParaTelecomunicacionesRespaldoEnergia } from "@/content/blog/baterias-para-telecomunicaciones-respaldo-energia";
 import { articulo as bateriasParaEquiposDeEmergencia } from "@/content/blog/baterias-para-equipos-de-emergencia";
 import { articulo as bateriasParaMontacargasElectricos } from "@/content/blog/baterias-para-montacargas-electricos";
+import { articulo as queEsElVoltajeDeUnaBateria } from "@/content/blog/que-es-el-voltaje-de-una-bateria";
 
 export type PreguntaFrecuente = { pregunta: string; respuesta: string };
 
@@ -38,7 +39,7 @@ export type Articulo = {
   preguntas?: PreguntaFrecuente[];
 };
 
-export const ARTICULOS: Articulo[] = [bateriasParaMontacargasElectricos, bateriasParaEquiposDeEmergencia, bateriasParaTelecomunicacionesRespaldoEnergia, bateriasParaSistemasDeSeguridad, bateriasParaEquiposMedicos, funcionBateriasSistemaSolar, importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
+export const ARTICULOS: Articulo[] = [queEsElVoltajeDeUnaBateria, bateriasParaMontacargasElectricos, bateriasParaEquiposDeEmergencia, bateriasParaTelecomunicacionesRespaldoEnergia, bateriasParaSistemasDeSeguridad, bateriasParaEquiposMedicos, funcionBateriasSistemaSolar, importanciaSistemaRespaldoEnergia, bateriasDeLitioVentajasAplicaciones, porQueUnaBateriaPierdeCapacidad, marcasDeBateriasSelladas, calcularBateriaParaNoBreak, bateriasDeCicloProfundo, queTipoDeBateriaNecesitaTuEquipo, elegirBateriasAgmRespaldoConfiables, comoProlongarVidaUtilBateria, bateriasSelladasCdmx].sort((a, b) =>
   b.fecha.localeCompare(a.fecha)
 );
 
